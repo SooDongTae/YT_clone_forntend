@@ -2,7 +2,7 @@
     position: fixed;
     top: 0;
     width: 100%;
-    height: 7.5vh;
+    height: 55px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -11,25 +11,36 @@
 .Header_menu {
     width: 30px;
 }
+.Header_menu:hover {
+    cursor: pointer;
+}
 .Header_logo_box {
-    width: 30%;
+    width: 220px;
     height: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
 }
 .Header_logo_box img {
     height: 100%;
 }
+.Header_logo_box img:hover {
+    cursor: pointer;
+}
 .Header_search_box {
     height: 100%;
-    width: 30%;
+    width: 45%;
     display: flex;
     align-items: center;
+    margin-left: 13%;
+}
+.Keyboard_in_search {
+    position:relative;
+    left: 76%;
 }
 .Header_input {
     background-color: white;
-    width: 80%;
+    width: 90%;
     height: 70%;
     border: none;
     border: 1px solid #ccc;
@@ -37,12 +48,49 @@
     font-size: 15px;
 }
 .Header_submit {
-    background-color: rgb(241, 241, 241);
-    width: 80px;
+    background-color: rgb(247, 247, 247);
+    width: 65px;
     height: 70%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     border: 1px solid #ccc;
+}
+.Header_submit:hover {
+    cursor: pointer;
+}
+.Header_mic_box {
+    margin-left: 10px;
+    width: 40px;
+    height: 40px;
+    background-color: rgb(246, 246, 246);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.Header_mic_box:hover {
+    cursor: pointer;
+}
+.Header_right_part {
+    position: fixed;
+    right: 40px;
+    width: 150px;
+    display: flex;
+    align-items: center;
+}
+.Header_icons {
+    margin: 15px;
+}
+.Header_icons:hover {
+    cursor: pointer;
+}
+.Header_right_part img {
+    margin-left: 15px;
+    border-radius: 50%;
+    width: 33px;
+}
+.Header_right_part img:hover {
+    cursor: pointer;
 }

@@ -35,11 +35,17 @@ const Content = () => {
             margin-top: 32px;
             line-height: 30px;
             cursor: pointer;
+            transition: 0.3s;
         }
-
+        .Video_cate a {
+            margin: 10px;
+            font-size: 15px;
+        }
         .active {
             color: white;
             background-color: black;
+            border: 1px solid black;
+            transition: 0.3s;
         }
         `}</style>
         </>

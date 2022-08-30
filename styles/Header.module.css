@@ -39,6 +39,7 @@
     left: 76%;
 }
 .Header_input {
+    padding-left: 10px;
     background-color: white;
     width: 90%;
     height: 70%;

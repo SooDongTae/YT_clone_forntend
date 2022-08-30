@@ -1,10 +1,12 @@
 import React from 'react'
+import Content from '../components/Content'
 import Header from '../components/Header'
 
 const Watch = () => {
   return (
     <div>
-        <Header />
+      <Header />
+      <Content />
     </div>
   )
 }

@@ -17,7 +17,7 @@ const Header = () => {
           <BsKeyboardFill 
           onMouseOver={() => {setkColor('black')}}
           onMouseLeave={() => {setkColor('gray')}}
-          className={styles.Keyboard_icon} color={kColor} size='18' />
+          className={styles.Keyboard_icon} color={kColor} size='20' />
         </div>
         <input className={styles.Header_input} type='text' placeholder='검색'/>
         <div className={styles.Header_submit}>

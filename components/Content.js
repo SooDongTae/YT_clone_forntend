@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import styles from "../styles/Content.module.css"
 import NextVideo from './NextVideo';
+import VideoPart from './VideoPart';
 
 const Content = () => {
     const [cateColor, setCateColor] = useState(0);
@@ -8,11 +9,10 @@ const Content = () => {
         <>
         <div className={styles.Content_container}>
             <div className={styles.Video_part}>
-                <div className={styles.Content_video}></div>
-                
+                <VideoPart />
             </div>
             <div className={styles.Other_video_part}>
-                <div className={styles.Video_cate_box}>
+                <div>
                     <div onClick={()=>{setCateColor(1)}} className={`Video_cate ${cateColor === 1 ? "active" : ""} `} ><a>모두</a></div>
                     <div onClick={()=>{setCateColor(2)}} className={`Video_cate ${cateColor === 2 ? "active" : ""} `}><a>관련 콘텐츠</a></div>
                     <div onClick={()=>{setCateColor(3)}} className={`Video_cate ${cateColor === 3 ? "active" : ""} `}><a>실시간</a></div>

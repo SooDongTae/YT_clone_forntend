@@ -10,6 +10,9 @@
 }
 .Video_part {
     width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .Other_video_part {
     width: 30%;

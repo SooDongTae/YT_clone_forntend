@@ -69,10 +69,10 @@ box-shadow: 1px 1px #ccc;
 }
 .Header_mic_box {
     margin-left: 10px;
-    width: 40px;
+    width: 50px;
     height: 40px;
     background-color: rgb(246, 246, 246);
-    border-radius: 50%;
+    border-radius: 100px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -101,4 +101,33 @@ box-shadow: 1px 1px #ccc;
 }
 .Header_right_part img:hover {
     cursor: pointer;
+}
+.Search_popup_box, .Mic_popup_box, .Make_popup_box, .Inform_popup_box {
+    display: inline-block;
+    position: fixed;
+    width: auto;
+    height: 35px;
+    font-size: 12px;
+    background-color: grey;
+    line-height: 35px;
+    padding-left: 5px;
+    padding-right: 5px;
+    opacity: 0.9;
+    color: white;
+}
+.Search_popup_box {
+    left: 962px;
+    top: 70px;
+}
+.Mic_popup_box {
+    left: 1000px;
+    top: 70px;
+}
+.Make_popup_box {
+    left: 1255px;
+    top: 70px;
+}
+.Inform_popup_box {
+    left: 1312px;
+    top: 70px;
 }

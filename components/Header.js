@@ -5,6 +5,10 @@ import { AiOutlineVideoCameraAdd } from "react-icons/ai"
 import { VscMenu } from "react-icons/vsc"
 import  styles from '../styles/Header.module.css'
 const Header = () => {
+  const [isSearchMouseOver, setIsSearchMouseOver] = useState(false);
+  const [isMicMouseOver, setIsMicMouseOver] = useState(false);
+  const [isMakeMouseOver, setIsMakeMouseOver] = useState(false);
+  const [isInformMouseOver, setIsInformMouseOver] = useState(false);
   const [kColor, setkColor] = useState('gray');
   return (
     <div className={styles.Header_container}>
@@ -20,18 +24,42 @@ const Header = () => {
           className={styles.Keyboard_icon} color={kColor} size='20' />
         </div>
         <input className={styles.Header_input} type='text' placeholder='검색'/>
-        <div className={styles.Header_submit}>
+        <div 
+          onMouseOver={() => {setIsSearchMouseOver(true)}}
+          onMouseLeave={() => {setIsSearchMouseOver(false)}}
+          className={styles.Header_submit}
+        >
             <IoIosSearch color='gray' size='25'/>
         </div>
-        <div className={styles.Header_mic_box}>
+        <div 
+          onMouseOver={() => {setIsMicMouseOver(true)}}
+          onMouseLeave={() => {setIsMicMouseOver(false)}}
+          className={styles.Header_mic_box}
+        >
           <BsFillMicFill color='black' size='18'/>
         </div>
       </div>
       <div className={styles.Header_right_part}>
-        <AiOutlineVideoCameraAdd className={styles.Header_icons} color='black' size='22'/>
-        <BsBell className={styles.Header_icons} color='black' size='20'/>
+        <AiOutlineVideoCameraAdd 
+          className={styles.Header_icons} 
+          color='black' 
+          size='22'
+          onMouseOver={() => {setIsMakeMouseOver(true)}}
+          onMouseLeave={() => {setIsMakeMouseOver(false)}}
+        />
+        <BsBell 
+          className={styles.Header_icons} 
+          color='black' 
+          size='20'
+          onMouseOver={() => {setIsInformMouseOver(true)}}
+          onMouseLeave={() => {setIsInformMouseOver(false)}}
+        />
         <img src='https://yt3.ggpht.com/ytc/AMLnZu9Jzp859A5IesAX3WqVFY0ocYhG3_oFkYuLlNlH1KPJhA=s88-c-k-c0x00ffffff-no-rj-mo'/>
       </div>
+      { isSearchMouseOver && <div className={styles.Search_popup_box}>검색</div> }
+      { isMicMouseOver && <div className={styles.Mic_popup_box}>음성으로 검색</div> }
+      { isMakeMouseOver && <div className={styles.Make_popup_box}>만들기</div> }
+      { isInformMouseOver && <div className={styles.Inform_popup_box}>알림</div> }
     </div>
   )
 }

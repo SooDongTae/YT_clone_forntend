@@ -36,6 +36,10 @@
     align-items: center;
     margin-left: 13%;
 }
+.Header_search_box:focus {
+    width: 50%;
+    margin-left: 10%;
+}
 .Keyboard_in_search {
     position:relative;
     left: 78%;

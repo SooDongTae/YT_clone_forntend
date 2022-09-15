@@ -4,6 +4,8 @@
     width: 95%;
     height: 530px;
     margin-bottom: 10px;
+    display: flex;
+    align-items: center;
 }
 .Video_info_box {
     width: 95%;
@@ -21,6 +23,10 @@
     margin: 0;
     font-size: 17px;
     font-weight: 500;
+}
+.Video_views {
+    font-size: 14px !important;
+    margin-top: 20px !important;
 }
 .Uploader_info_box {
     width: 50%;
@@ -107,18 +113,20 @@
 
 .Line_under_option {
     width: 100%;
-    height: 2px;
+    height: 1.5px;
     background-color: rgb(226, 226, 226);
     border: none;
 }
 .Video_explanation_box {
+    /* margin-top: 30px; */
     width: 100%;
-    height: 60px;
+    /* height: 35px; */
     /* background-color: aqua; */
+    margin-bottom: 0;
 }
 .Like_popup_box, .Unlike_popup_box, .Share_popup_box, .Download_popup_box {
     display: inline-block;
-    position: relative;
+    position: absolute;
     width: auto;
     height: 35px;
     font-size: 12px;
@@ -130,18 +138,108 @@
     color: white;
 }
 .Like_popup_box {
-    left: 490px;
-    bottom: 10px;
+    left: 500px;
+    top: 800px;
 }
 .Unlike_popup_box {
-    left: 560px;
-    bottom: 10px;
+    left: 600px;
+    top: 800px;
 }
 .Share_popup_box {
-    left: 720px;
-    bottom: 10px;
+    left: 750px;
+    top: 800px;
 }
 .Download_popup_box {
-    left: 800px;
-    bottom: 10px;
+    left: 820px;
+    top: 800px;
+}
+.More_info_box {
+    position: relative;
+    top: 10px;
+    width: 65%;
+    height: auto;
+    margin-left: 6%;
+    margin-bottom: 10px;
+    /* background-color: beige; */
+}
+.More_info_box div {
+    font-size: 14px;
+}
+.More_info_box span {
+    margin-top: 20px !important;
+    color: grey;
+    cursor: pointer;
+}
+.Comment_box {
+    width: 100%;
+}
+.Comment_sort_box {
+    width: 200px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.Comment_sort_box div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;  
+    justify-content: space-between;  
+}
+.Comment_sort {
+    color: black !important;
+    font-size: 14px !important;
+}
+.Comment_number {
+    font-size: 16px !important;
+    color: black !important;
+}
+.Comment_input_part {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /* background-color: aquamarine; */
+}
+.Comment_input_part img {
+    width: 40px;
+    height: 40px;
+    border-radius: 100px;
+    margin-bottom: 20px;
+    margin-right: 10px;
+}
+.Comment_input_box {
+    width: 100%;
+}
+.Comment_input_box div {
+    float: right;
+    display: flex;
+    flex-direction: row;
+}
+.Comment_input_box input {
+    width: 100%;
+    height: 35px;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid black;
+}
+.Comment_buttons {
+    width: 72px;
+    height: 37px;
+    line-height: 37px;
+    margin: 7px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+    color: #909090;
+    font-size: 13px;
+}
+#Comment_btn1 {
+    background-color: rgb(246, 246, 246);
+    color: #787878;
+}
+#Comment_btn2 {
+    background-color: rgb(225, 225, 225);
 }

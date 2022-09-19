@@ -221,7 +221,30 @@
     height: 35px;
     background-color: transparent;
     border: none;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid lightgray;
+    color: #666;
+    display:inline-block; 
+    margin:0;
+}
+.Comment_input_box input:before, .Comment_input_box input:after {
+    transform-origin: center;
+}
+.Comment_input_box input::before {
+    border-top: 2px solid #fc1a02;
+    border-bottom: 2px solid #fc1a02;
+    transform: scale3d(0, 1, 1);
+}
+.Comment_input_box input::after {
+    border-left: 2px solid #fc1a02;
+    border-right: 2px solid #fc1a02;
+    transform: scale3d(1, 0, 1);
+}
+.Comment_input_box input:hover::before, .Comment_input_box input:hover::after {
+    transform: scale3d(1, 1, 1);
+    transition: transform 0.5s;
+}
+.Comment_input_box input:focus {
+    outline: none;
 }
 .Comment_buttons {
     width: 72px;

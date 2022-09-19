@@ -12,7 +12,7 @@ const VideoPart = () => {
     const [isDownloadMouseOver, setIsDownloadMouseOver] = useState(false);
     const [isShowMore, setIsShowMore] = useState(false);
     const textLimit = useRef(170)
-
+    const [isFocus, setIsFocus] = useState(false);
     const comment = "설명란, ------------------------, 설명란, ------------------------, 설명란, ------------------------, 설명란, ------------------------, 설명란, ------------------------, 설명란, ------------------------, 설명란, ------------------------, 설명란, ------------------------, 설명란, ------------------------, 설명란, ------------------------, 설명란, ------------------------, 설명란, ------------------------, 설명란, ------------------------, 설명란, ------------------------, 설명란, ------------------------, 설명란, ------------------------, "
     
     const commenter = useMemo(() => {
@@ -106,13 +106,17 @@ const VideoPart = () => {
                     <div className={styles.Comment_input_part}>
                         <img src='https://yt3.ggpht.com/ytc/AMLnZu9Jzp859A5IesAX3WqVFY0ocYhG3_oFkYuLlNlH1KPJhA=s88-c-k-c0x00ffffff-no-rj-mo'/>
                         <div className={styles.Comment_input_box}>
-                            <input placeholder='댓글 추가...'/>
+                            {
+                                isFocus === false ? 
+                                <div className={styles.Comment_line}></div>
+                                : <div className={styles.Comment_line_inAni}></div>
+                            }
+                            <input onFocus={() => setIsFocus(true)} onBlur={() => setIsFocus(false)} placeholder='댓글 추가...'/>
                             <div>
                                 <div id={styles.Comment_btn1} className={styles.Comment_buttons}>취소</div>
                                 <div id={styles.Comment_btn2} className={styles.Comment_buttons}>댓글</div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>

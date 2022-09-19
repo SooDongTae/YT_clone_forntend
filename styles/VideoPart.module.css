@@ -256,7 +256,7 @@
     width: 62%;
     background-color: black;
     animation-name: inputAnimation;
-    animation-duration: 0.5s;
+    animation-duration: 0.3s;
 }
 .Comment_buttons {
     width: 72px;

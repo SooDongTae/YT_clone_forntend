@@ -12,6 +12,7 @@ const VideoPart = () => {
     const [isDownloadMouseOver, setIsDownloadMouseOver] = useState(false);
     const [isShowMore, setIsShowMore] = useState(false);
     const textLimit = useRef(170)
+    const [firstFocus, setFirstFocus] = useState(false);
     const [isFocus, setIsFocus] = useState(false);
     const comment = "설명란, ------------------------, 설명란, ------------------------, 설명란, ------------------------, 설명란, ------------------------, 설명란, ------------------------, 설명란, ------------------------, 설명란, ------------------------, 설명란, ------------------------, 설명란, ------------------------, 설명란, ------------------------, 설명란, ------------------------, 설명란, ------------------------, 설명란, ------------------------, 설명란, ------------------------, 설명란, ------------------------, 설명란, ------------------------, "
     
@@ -111,10 +112,23 @@ const VideoPart = () => {
                                 <div className={styles.Comment_line}></div>
                                 : <div className={styles.Comment_line_inAni}></div>
                             }
-                            <input onFocus={() => setIsFocus(true)} onBlur={() => setIsFocus(false)} placeholder='댓글 추가...'/>
+                            <input 
+                                onFocus={() => {
+                                    setIsFocus(true) 
+                                    setFirstFocus(true)
+                                }} 
+                                onBlur={() => setIsFocus(false)} 
+                                placeholder='댓글 추가...'
+                            />
                             <div>
-                                <div id={styles.Comment_btn1} className={styles.Comment_buttons}>취소</div>
-                                <div id={styles.Comment_btn2} className={styles.Comment_buttons}>댓글</div>
+                                {
+                                    firstFocus ?
+                                    <>
+                                    <div id={styles.Comment_btn1} className={styles.Comment_buttons}>취소</div>
+                                    <div id={styles.Comment_btn2} className={styles.Comment_buttons}>댓글</div>
+                                    </> : 
+                                    <div className={styles.Comment_buttons}></div>
+                                }
                             </div>
                         </div>
                     </div>

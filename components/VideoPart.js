@@ -1,19 +1,19 @@
 import React, { useState, useRef, useMemo } from 'react'
 import styles from "../styles/VideoPart.module.css"
 import { FiThumbsUp, FiThumbsDown } from "react-icons/fi"
-import { MdSort } from "react-icons/md"
 import { RiShareForwardLine, RiScissorsLine, RiPlayListAddLine } from "react-icons/ri"
 import { HiDownload, HiOutlineDotsHorizontal } from "react-icons/hi"
+import CommentPart from './CommentPart'
 
 const VideoPart = () => {
     const [isLikeMouseOver, setIsLikeMouseOver] = useState(false);
     const [isUnlikeMouseOver, setIsUnlikeMouseOver] = useState(false);
     const [isShareMouseOver, setIsShareMouseOver] = useState(false);
     const [isDownloadMouseOver, setIsDownloadMouseOver] = useState(false);
+
     const [isShowMore, setIsShowMore] = useState(false);
     const textLimit = useRef(170)
-    const [firstFocus, setFirstFocus] = useState(false);
-    const [isFocus, setIsFocus] = useState(false);
+
     const comment = "설명란, ------------------------, 설명란, ------------------------, 설명란, ------------------------, 설명란, ------------------------, 설명란, ------------------------, 설명란, ------------------------, 설명란, ------------------------, 설명란, ------------------------, 설명란, ------------------------, 설명란, ------------------------, 설명란, ------------------------, 설명란, ------------------------, 설명란, ------------------------, 설명란, ------------------------, 설명란, ------------------------, 설명란, ------------------------, "
     
     const commenter = useMemo(() => {
@@ -96,42 +96,8 @@ const VideoPart = () => {
                     </span>
                 </div>
                 <hr style={{top: "0"}} className={styles.Line_under_option} />
-                <div className={styles.Comment_box}>
-                    <div className={styles.Comment_sort_box}>
-                        <span className={styles.Comment_number}>댓글 1개</span>
-                        <div>
-                            <MdSort size={30}/>
-                            <span className={styles.Comment_sort}>정렬 기준</span>
-                        </div>
-                    </div>
-                    <div className={styles.Comment_input_part}>
-                        <img src='https://yt3.ggpht.com/ytc/AMLnZu9Jzp859A5IesAX3WqVFY0ocYhG3_oFkYuLlNlH1KPJhA=s88-c-k-c0x00ffffff-no-rj-mo'/>
-                        <div className={styles.Comment_input_box}>
-                            {
-                                isFocus === false ? 
-                                <div className={styles.Comment_line}></div>
-                                : <div className={styles.Comment_line_inAni}></div>
-                            }
-                            <input 
-                                onFocus={() => {
-                                    setIsFocus(true) 
-                                    setFirstFocus(true)
-                                }} 
-                                onBlur={() => setIsFocus(false)} 
-                                placeholder='댓글 추가...'
-                            />
-                            <div>
-                                {
-                                    firstFocus ?
-                                    <>
-                                    <div id={styles.Comment_btn1} className={styles.Comment_buttons}>취소</div>
-                                    <div id={styles.Comment_btn2} className={styles.Comment_buttons}>댓글</div>
-                                    </> : 
-                                    <div className={styles.Comment_buttons}></div>
-                                }
-                            </div>
-                        </div>
-                    </div>
+                <div className={styles.CommentPart}>
+                    <CommentPart />
                 </div>
             </div>
         </>

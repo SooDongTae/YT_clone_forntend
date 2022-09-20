@@ -158,7 +158,7 @@
     top: 10px;
     width: 65%;
     height: auto;
-    margin-left: 6%;
+    /* margin-left: 6%; */
     margin-bottom: 10px;
     /* background-color: beige; */
 }
@@ -170,111 +170,6 @@
     color: grey;
     cursor: pointer;
 }
-.Comment_box {
+.CommentPart {
     width: 100%;
-}
-.Comment_sort_box {
-    width: 200px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-}
-.Comment_sort_box div {
-    display: flex;
-    flex-direction: row;
-    align-items: center;  
-    justify-content: space-between;  
-}
-.Comment_sort {
-    color: black !important;
-    font-size: 14px !important;
-}
-.Comment_number {
-    font-size: 16px !important;
-    color: black !important;
-}
-.Comment_input_part {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    /* background-color: aquamarine; */
-}
-.Comment_input_part img {
-    width: 40px;
-    height: 40px;
-    border-radius: 100px;
-    margin-bottom: 20px;
-    margin-right: 10px;
-}
-.Comment_input_box {
-    width: 100%;
-}
-.Comment_input_box div {
-    float: right;
-    display: flex;
-    flex-direction: row;
-}
-.Comment_input_box input {
-    width: 100%;
-    height: 100%;
-    background-color: transparent;
-    border: none;
-    color: #666;
-    vertical-align: middle;
-    box-sizing: border-box;
-}
-
-.Comment_input_box input:focus {
-    outline: none;
-}
-
-@keyframes inputAnimation {
-    from {
-        box-sizing: inherit;
-        border-bottom: 1px solid #000;
-        transform: scale3d(0, 1, 0);
-    }
-    to {
-        box-sizing: inherit;
-        border-bottom: 2px solid #000;
-        transform: scale3d(1, 1, 1);
-    }
-}
-.Comment_line {
-    position: absolute;
-    top: 116.5%;
-    height: 1px;
-    width: 62%;
-    background-color: lightgrey;
-}
-.Comment_line_inAni {
-    position: absolute;
-    top: 116.5%;
-    height: 2px;
-    width: 62%;
-    background-color: black;
-    animation-name: inputAnimation;
-    animation-duration: 0.3s;
-}
-.Comment_buttons {
-    width: 72px;
-    height: 37px;
-    line-height: 37px;
-    margin: 7px;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 3px;
-    color: #909090;
-    font-size: 13px;
-}
-#Comment_btn1 {
-    background-color: rgb(246, 246, 246);
-    color: #787878;
-}
-#Comment_btn2 {
-    background-color: rgb(225, 225, 225);
 }

@@ -1,0 +1,42 @@
+.Comment_box {
+    width: 100%;
+    height: auto;
+    /* background-color: azure; */
+    margin: 30px 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+.Comment_box:nth-child(1) {
+    margin-top: 10px;
+}
+.Comment_box img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+.Comment_box > div > p {
+    font-size: 13px;
+}
+.Comment_info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.Comment_info span {
+    font-size: 10px;
+    color: grey;
+}
+.Comment_info p {
+    font-size: 13px;
+    margin-right: 5px;
+}
+.Comment_good_bad {
+    display: flex;
+    align-items: center;
+}
+.Comment_good_bad span {
+    margin: 0 5px;
+}

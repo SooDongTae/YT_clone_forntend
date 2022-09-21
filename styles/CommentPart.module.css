@@ -74,17 +74,17 @@
 }
 .Comment_line {
     position: absolute;
-    top: 118.5%;
+    top: 138%;
     height: 1px;
-    width: 62%;
+    width: 63%;
     background-color: lightgrey;
     transition: 0.3s;
 }
 .Comment_line_inAni {
     position: absolute;
-    top: 118.5%;
+    top: 138%;
     height: 2px;
-    width: 62%;
+    width: 63%;
     background-color: black;
     animation-name: inputAnimation;
     animation-duration: 0.3s;

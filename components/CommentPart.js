@@ -10,7 +10,7 @@ const CommentPart = () => {
     const [isFocus, setIsFocus] = useState(false);
     const [isInput, setIsInput] = useState(false);
 
-    const commentsSample = [
+    const [commentsSample, setCommentsSample] = [
         {
             imgSrc: "https://yt3.ggpht.com/ytc/AMLnZu_D4JwoqK3mF9YcK1b6_sQ8lvdQ-luwDuqt3w=s88-c-k-c0x00ffffff-no-rj",
             userName: "taehyun",
@@ -78,7 +78,12 @@ const CommentPart = () => {
                                 { 
                                     !isInput ? 
                                     <div id={styles.Comment_btn2} className={styles.Comment_buttons}>댓글</div>
-                                    : <div id={styles.Comment_btn2_active} className={styles.Comment_buttons}>댓글</div>
+                                    : <div 
+                                        id={styles.Comment_btn2_active} 
+                                        className={styles.Comment_buttons}
+                                    >
+                                        댓글
+                                    </div>
                                 }
                             </> : 
                             <div className={styles.Comment_buttons}></div>

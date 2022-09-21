@@ -9,7 +9,7 @@ const Header = () => {
   const [isMicMouseOver, setIsMicMouseOver] = useState(false);
   const [isMakeMouseOver, setIsMakeMouseOver] = useState(false);
   const [isInformMouseOver, setIsInformMouseOver] = useState(false);
-  const [kColor, setkColor] = useState('gray');
+  const [kColor, setKColor] = useState('gray');
   return (
     <div className={styles.Header_container}>
       <div className={styles.Header_logo_box}>
@@ -19,8 +19,8 @@ const Header = () => {
       <div className={styles.Header_search_box}>
         <div className={styles.Keyboard_in_search}>
           <BsKeyboardFill 
-          onMouseOver={() => {setkColor('black')}}
-          onMouseLeave={() => {setkColor('gray')}}
+          onMouseOver={() => {setKColor('black')}}
+          onMouseLeave={() => {setKColor('gray')}}
           className={styles.Keyboard_icon} color={kColor} size='20' />
         </div>
         <input className={styles.Header_input} type='text' placeholder='검색'/>

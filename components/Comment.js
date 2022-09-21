@@ -1,9 +1,14 @@
-import React from 'react'
-import { FiThumbsDown, FiThumbsUp } from 'react-icons/fi'
+import React, { useState } from 'react'
+import { IoMdThumbsDown, IoMdThumbsUp } from 'react-icons/io'
 import styles from "../styles/Comment.module.css"
 
 
 const Comment = (props) => {
+
+  // const [list, setList] = useState(props.commentsSample)
+
+  const [isGood, setIsGood] = useState(false)
+  const [isBad, setIsBad] = useState(false)
   return (
     <div className={styles.Comment_box}>
         <img src={props.comment.imgSrc} />
@@ -14,9 +19,28 @@ const Comment = (props) => {
             </div>
             <p>{props.comment.comment}</p>
             <div className={styles.Comment_good_bad}>
-                <FiThumbsUp size={15} />
-                <span>{props.comment.good}</span>
-                <FiThumbsDown size={15} />
+                <IoMdThumbsUp 
+                  onClick={() => {
+                    setIsGood(!isGood)
+                    setIsBad(false)
+                    if(!isGood)props.comment.good++
+                    else props.comment.good--
+                  }} 
+                  color={isGood ? "rgb(0, 102, 255)" : "black"}
+                  size={15} 
+                />
+                <span style={{width: "10px", textAlign: "center"}}>{props.comment.good}</span>
+                <IoMdThumbsDown 
+                  onClick={() => {
+                    setIsBad(!isBad)
+                    if(isGood) {
+                      props.comment.good--
+                      setIsGood(false)
+                    }
+                  }}
+                  color={isBad ? "rgb(0, 102, 255)" : "black"}
+                  size={15} 
+                />
             </div>
         </div>
     </div>

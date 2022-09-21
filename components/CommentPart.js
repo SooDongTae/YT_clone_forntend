@@ -9,18 +9,27 @@ const CommentPart = () => {
     const [firstFocus, setFirstFocus] = useState(false);
     const [isFocus, setIsFocus] = useState(false);
     const [isInput, setIsInput] = useState(false);
+    const [inputComment, setInputComment] = useState("");
 
-    const [commentsSample, setCommentsSample] = [
+    const Me = {
+        imgSrc: "https://yt3.ggpht.com/ytc/AMLnZu9Jzp859A5IesAX3WqVFY0ocYhG3_oFkYuLlNlH1KPJhA=s88-c-k-c0x00ffffff-no-rj-mo",
+        userName: "이태현",
+        comment: "",
+        good: 0,
+        date: "2022/09/21"
+    }
+
+    const [commentsSample, setCommentsSample] = useState([
         {
             imgSrc: "https://yt3.ggpht.com/ytc/AMLnZu_D4JwoqK3mF9YcK1b6_sQ8lvdQ-luwDuqt3w=s88-c-k-c0x00ffffff-no-rj",
-            userName: "taehyun",
+            userName: "TaeHi",
             comment: "좋아요!!",
             good: 5,
-            date: "2022/05/05"
+            date: "2022/05/05",
         },
         {
             imgSrc: "https://lh3.googleusercontent.com/ogw/AOh-ky1uAXwkV8yiFs8KaB07AxluQj2nYO0d-RgdXzqr=s64-c-mo",
-            userName: "태현",
+            userName: "DoHi",
             comment: "정말 좋아요!!",
             good: 10,
             date: "2022/05/10"
@@ -32,8 +41,7 @@ const CommentPart = () => {
             good: 2,
             date: "2022/05/25"
         },
-    ]
-
+    ])
   return (
     <div>
         <div className={styles.Comment_box}>
@@ -60,6 +68,7 @@ const CommentPart = () => {
                         onChange={(e) => {
                             if(e.target.value)setIsInput(true)
                             else setIsInput(false)
+                            setInputComment(e.target.value)
                         }}
                         onBlur={() => setIsFocus(false)} 
                         placeholder='댓글 추가...'
@@ -81,6 +90,10 @@ const CommentPart = () => {
                                     : <div 
                                         id={styles.Comment_btn2_active} 
                                         className={styles.Comment_buttons}
+                                        onClick={() => {
+                                            Me.comment = inputComment
+                                            setCommentsSample([Me, ...commentsSample])
+                                        }}
                                     >
                                         댓글
                                     </div>

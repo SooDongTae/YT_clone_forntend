@@ -41,5 +41,6 @@
     align-items: center;
 }
 .Comment_good_bad span {
-    margin: 0 5px;
+    margin: 0 10px;
+    color: black;
 }

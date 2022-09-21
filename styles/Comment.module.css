@@ -8,6 +8,10 @@
     align-items: center;
     justify-content: flex-start;
 }
+.Comment_menu {
+    position: absolute;
+    right: 480px;
+}
 .Comment_box:nth-child(1) {
     margin-top: 10px;
 }

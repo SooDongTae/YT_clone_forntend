@@ -1,16 +1,17 @@
 import React, { useState, useRef, useMemo } from 'react'
 import styles from "../styles/VideoPart.module.css"
-import { FiThumbsUp, FiThumbsDown } from "react-icons/fi"
 import { RiShareForwardLine, RiScissorsLine, RiPlayListAddLine } from "react-icons/ri"
 import { HiDownload, HiOutlineDotsHorizontal } from "react-icons/hi"
 import CommentPart from './CommentPart'
+import { IoMdThumbsDown, IoMdThumbsUp } from 'react-icons/io'
 
 const VideoPart = () => {
     const [isLikeMouseOver, setIsLikeMouseOver] = useState(false);
     const [isUnlikeMouseOver, setIsUnlikeMouseOver] = useState(false);
     const [isShareMouseOver, setIsShareMouseOver] = useState(false);
     const [isDownloadMouseOver, setIsDownloadMouseOver] = useState(false);
-
+    const [isGood, setIsGood] = useState(false);
+    const [isBad, setIsBad] = useState(false);
     const [isShowMore, setIsShowMore] = useState(false);
     const textLimit = useRef(170)
 
@@ -51,15 +52,24 @@ const VideoPart = () => {
                             <div 
                                 onMouseOver={() => {setIsLikeMouseOver(true)}}
                                 onMouseLeave={() => {setIsLikeMouseOver(false)}}
+                                onClick={() => {
+                                    setIsGood(!isGood)
+                                    setIsBad(false)
+                                }}
+                                
                             >
-                                <FiThumbsUp size={22} />
-                                <span>4.2천</span>
+                                <IoMdThumbsUp color={isGood ? "rgb(0, 102, 255)" : "black"} size={22} /> 
+                                <span style={{color: "black"}}>4.2천</span>
                             </div>
                             <div 
                                 onMouseOver={() => {setIsUnlikeMouseOver(true)}}
                                 onMouseLeave={() => {setIsUnlikeMouseOver(false)}}
+                                onClick={() => {
+                                    setIsBad(!isBad)
+                                    setIsGood(false)
+                                }}
                             >
-                                <FiThumbsDown size={22} />
+                                <IoMdThumbsDown color={isBad ? "rgb(0, 102, 255)" : "black"} size={22} />
                                 <span>싫어요</span>
                             </div>
                             <div 

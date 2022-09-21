@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { IoMdThumbsDown, IoMdThumbsUp } from 'react-icons/io'
+import { BsThreeDotsVertical } from 'react-icons/bs'
 import styles from "../styles/Comment.module.css"
 
 
@@ -9,8 +10,10 @@ const Comment = (props) => {
 
   const [isGood, setIsGood] = useState(false)
   const [isBad, setIsBad] = useState(false)
+  const [menuOn, setMenuOn] = useState(false);
   return (
-    <div className={styles.Comment_box}>
+    <div onMouseOver={() => setMenuOn(true)} onMouseLeave={() => setMenuOn(false)} className={styles.Comment_box}>
+      {menuOn && <BsThreeDotsVertical className={styles.Comment_menu} />} 
         <img src={props.comment.imgSrc} />
         <div>
             <div className={styles.Comment_info}>

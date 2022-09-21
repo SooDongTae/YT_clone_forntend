@@ -72,13 +72,17 @@ const CommentPart = () => {
                         }}
                         onBlur={() => setIsFocus(false)} 
                         placeholder='댓글 추가...'
+                        value={inputComment}
                     />
                     <div>
                         {
                             firstFocus ?
                             <>
                                 <div 
-                                    onClick={() => setFirstFocus(false)}
+                                    onClick={() => {
+                                        setFirstFocus(false)
+                                        setInputComment("")
+                                    }}
                                     id={styles.Comment_btn1} 
                                     className={styles.Comment_buttons}
                                 >
@@ -93,6 +97,7 @@ const CommentPart = () => {
                                         onClick={() => {
                                             Me.comment = inputComment
                                             setCommentsSample([Me, ...commentsSample])
+                                            setInputComment("")
                                         }}
                                     >
                                         댓글

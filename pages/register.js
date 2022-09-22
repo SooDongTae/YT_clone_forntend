@@ -21,7 +21,7 @@ const Register = () => {
           </div>
           <div className={styles.submit_box}>  
             <Link href={'/login'}>로그인하기</Link>
-            <input value="다음" type="submit"/>
+            <input value="회원가입" type="submit"/>
           </div>
         </div>
         <div className={styles.right_img}>

@@ -10,8 +10,15 @@
     justify-content: flex-start;
 }
 .Comment_menu {
-    position: absolute;;
+    position: absolute;
     right: 480px;
+}
+.Menu {
+    position: absolute;
+    right: 400px;
+    width: 80px;
+    height: 40px;
+    background-color: rgb(244, 244, 244);
 }
 .Comment_box:nth-child(1) {
     margin-top: 10px;

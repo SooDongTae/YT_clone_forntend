@@ -46,7 +46,7 @@ const CommentPart = () => {
     <div>
         <div className={styles.Comment_box}>
             <div className={styles.Comment_sort_box}>
-                <span className={styles.Comment_number}>댓글 1개</span>
+                <span className={styles.Comment_number}>댓글 {commentsSample.length}개</span>
                 <div>
                     <MdSort size={30}/>
                     <span className={styles.Comment_sort}>정렬 기준</span>

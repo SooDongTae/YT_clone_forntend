@@ -26,6 +26,9 @@ const Content = () => {
                     <NextVideo />
                     <NextVideo />
                     <NextVideo />
+                    <NextVideo />
+                    <NextVideo />
+                    <NextVideo />
                 </div>
             </div>
             

@@ -98,6 +98,7 @@ const CommentPart = () => {
                                             Me.comment = inputComment
                                             setCommentsSample([Me, ...commentsSample])
                                             setInputComment("")
+                                            setIsInput(false)
                                         }}
                                     >
                                         댓글

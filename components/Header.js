@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
-import { IoIosSearch } from "react-icons/io"
+import { IoIosSearch, IoCloseOutline } from "react-icons/io"
 import { BsFillMicFill, BsKeyboardFill, BsBell } from "react-icons/bs"
 import { AiOutlineVideoCameraAdd } from "react-icons/ai"
+import { CgSoftwareUpload } from "react-icons/cg"
 import { VscMenu } from "react-icons/vsc"
 import  styles from '../styles/Header.module.css'
 import Popup from 'reactjs-popup';
@@ -62,10 +63,28 @@ const Header = () => {
         />
         <Popup 
           open={modalOpened}
-          // onClose={setModalOpened(false)}
+          onClose={() => {
+            setModalOpened(false)
+          }}
         >
           <div className={styles.Video_add_popup}>
-            <div className={styles.Video_add_box}></div>
+            <div className={styles.Popup_top_box}>
+              <span>동영상 업로드</span>
+              {/* <IoCloseOutline /> */}
+            </div>
+            <div className={styles.Popup_middle_box}>
+              <div className={styles.Drag_and_Drop}>
+                <CgSoftwareUpload color='grey' size={120} />
+              </div>
+              <p>동영상 파일을 드래그 앤 드롭하여 업로드</p>
+              <span>동영상을 게시하기 전에는 비공개로 설정됩니다.</span>
+              <label for='input_file'>파일 선택</label>
+              <input id='input_file' style={{display: "none"}} type="file"/>
+            </div>
+            <div className={styles.Popup_bottom_box}>
+              <p>YouTube에 동영상을 제출하면 YouTube 서비스 약관 및 커뮤니티 가이드에 동의하게 됩니다.</p>
+              <p>불법촬영물 게재시 삭제 조치되고 관련 법에 따라 처벌 받을 수 있습니다. 타인의 저작권 또는 개인정보 보호 권한을 침해해서는 안 됩니다.</p>
+            </div>
           </div>
         </Popup>
         <img src='https://yt3.ggpht.com/ytc/AMLnZu9Jzp859A5IesAX3WqVFY0ocYhG3_oFkYuLlNlH1KPJhA=s88-c-k-c0x00ffffff-no-rj-mo'/>

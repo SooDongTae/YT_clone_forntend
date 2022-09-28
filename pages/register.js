@@ -30,13 +30,12 @@ const Register = () => {
     axios.post(
       "http://192.168.10.210:8080/register",
       {
-        username: name,
-        password: id,
-        nickname: pwd,
-        profile: 'asdf'
+        username: id,
+        password: pwd,
+        nickname: name,
       }
     ).then((response) => {
-      console.log("성공")
+      console.log(response.data)
     }).catch((err)=>{
       console.log("err")
     })

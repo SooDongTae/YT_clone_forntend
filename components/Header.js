@@ -4,12 +4,17 @@ import { BsFillMicFill, BsKeyboardFill, BsBell } from "react-icons/bs"
 import { AiOutlineVideoCameraAdd } from "react-icons/ai"
 import { VscMenu } from "react-icons/vsc"
 import  styles from '../styles/Header.module.css'
+import Popup from 'reactjs-popup';
+
 const Header = () => {
   const [isSearchMouseOver, setIsSearchMouseOver] = useState(false);
   const [isMicMouseOver, setIsMicMouseOver] = useState(false);
   const [isMakeMouseOver, setIsMakeMouseOver] = useState(false);
   const [isInformMouseOver, setIsInformMouseOver] = useState(false);
   const [kColor, setKColor] = useState('gray');
+  const [modalOpened, setModalOpened] = useState(false);
+
+
   return (
     <div className={styles.Header_container}>
       <div className={styles.Header_logo_box}>
@@ -46,6 +51,7 @@ const Header = () => {
           size='22'
           onMouseOver={() => {setIsMakeMouseOver(true)}}
           onMouseLeave={() => {setIsMakeMouseOver(false)}}
+          onClick={()=> setModalOpened(true)}
         />
         <BsBell 
           className={styles.Header_icons} 
@@ -54,6 +60,14 @@ const Header = () => {
           onMouseOver={() => {setIsInformMouseOver(true)}}
           onMouseLeave={() => {setIsInformMouseOver(false)}}
         />
+        <Popup 
+          open={modalOpened}
+          // onClose={setModalOpened(false)}
+        >
+          <div className={styles.Video_add_popup}>
+            <div className={styles.Video_add_box}></div>
+          </div>
+        </Popup>
         <img src='https://yt3.ggpht.com/ytc/AMLnZu9Jzp859A5IesAX3WqVFY0ocYhG3_oFkYuLlNlH1KPJhA=s88-c-k-c0x00ffffff-no-rj-mo'/>
       </div>
       { isSearchMouseOver && <div className={styles.Search_popup_box}>검색</div> }

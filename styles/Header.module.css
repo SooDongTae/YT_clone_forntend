@@ -135,3 +135,14 @@ box-shadow: 1px 1px #ccc;
     left: 1312px;
     top: 70px;
 }
+
+.Video_add_popup {
+    width: 100vw;
+    height: 100vh;
+    background-color: aqua;
+}
+.Video_add_box {
+    width: 80%;
+    height: 80%;
+    background-color: azure;
+}

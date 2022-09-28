@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import { IoMdThumbsDown, IoMdThumbsUp } from 'react-icons/io'
 import { BsThreeDotsVertical } from 'react-icons/bs'
 import styles from "../styles/Comment.module.css"
+import Link from 'next/link'
 // import Link from 'next/link'
 
 const Comment = (props) => {
@@ -11,15 +12,11 @@ const Comment = (props) => {
   const [menuOn, setMenuOn] = useState(false);
   return (
     <div onMouseOver={() => setMenuOn(true)} onMouseLeave={() => setMenuOn(false)} className={styles.Comment_box}>
-      {/* <Link to={{
+      <Link href={{
         pathname: '/user',
-        state: {
-          profile: props.comment.imgSrc,
-          userName: props.comment.userName,
-        }
       }}>
         <img src={props.comment.imgSrc} />
-      </Link> */}
+      </Link>
       <div>
           <div className={styles.Comment_info}>
             <p>{props.comment.userName}</p>

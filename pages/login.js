@@ -1,10 +1,20 @@
+import axios from 'axios'
 import Link from 'next/link'
 import React from 'react'
 import styles from "../styles/Login.module.css"
 
 
+
 //최은결 왔다감
 const Login = () => {
+  function test(){
+    axios.post("http://192.168.10.210:8080/login",{username : "qkrruddnjs",password:"1234"})
+    .then((res)=>{
+      console.log(res)
+    }).catch((err)=>{
+      console.log("err")
+    })
+  }
   return (
     <div className={styles.container}>
       <div className={styles.register_box}>
@@ -16,7 +26,7 @@ const Login = () => {
           <input placeholder='비밀번호' type="password"/>
           <div className={styles.submit_box}>  
             <Link href={'/login'}>회원가입하기</Link>
-            <input value="로그인" type="submit"/>
+            <input value="로그인" type="submit" onClick={test}/>
           </div>
         </div>
         <div className={styles.right_img}>

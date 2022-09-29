@@ -164,7 +164,7 @@ box-shadow: 1px 1px #ccc;
     align-items: center;
     justify-content: center;
 }
-.Drag_and_Drop {
+/* .Drag_and_Drop {
     margin-top: 7%;
     width: 200px;
     height: 200px;
@@ -172,6 +172,26 @@ box-shadow: 1px 1px #ccc;
     border-radius: 50%;
     text-align: center;
     padding-top: 30px;
+} */
+.Popup_middle_box label:nth-child(1) {
+    margin-top: 5%;
+    width: 200px;
+    height: 200px;
+    background-color: rgb(241, 241, 241);
+    border-radius: 50%;
+    text-align: center;
+    line-height: 200px;
+    border: none;
+    min-width: 200px;
+    color: rgb(168, 168, 168);
+    font-size: 13px;
+}
+.Popup_middle_box label:nth-child(1) span {
+    display: none;
+}
+
+.Popup_middle_box label:nth-child(1) svg {
+    display: none;
 }
 .Popup_middle_box p {
     margin-top: 2%;
@@ -183,8 +203,8 @@ box-shadow: 1px 1px #ccc;
     font-size: 13px;
     color: grey;
 }
-.Popup_middle_box label {
-    margin-top: 3%;
+.File_submit_label {
+    margin-top: 5%;
     width: 90px;
     height: 35px;
     background-color: rgb(0, 102, 255);
@@ -195,7 +215,7 @@ box-shadow: 1px 1px #ccc;
     line-height: 35px;
 }
 .Popup_bottom_box {
-    padding-top: 7%;
+    padding-top: 6%;
 }
 .Popup_bottom_box p{
     font-size: 12px;

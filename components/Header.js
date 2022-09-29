@@ -6,6 +6,9 @@ import { CgSoftwareUpload } from "react-icons/cg"
 import { VscMenu } from "react-icons/vsc"
 import  styles from '../styles/Header.module.css'
 import Popup from 'reactjs-popup';
+import { FileUploader } from 'react-drag-drop-files'
+
+const fileTypes = ["JPG", "PNG", "GIF"];
 
 const Header = () => {
   const [isSearchMouseOver, setIsSearchMouseOver] = useState(false);
@@ -14,8 +17,12 @@ const Header = () => {
   const [isInformMouseOver, setIsInformMouseOver] = useState(false);
   const [kColor, setKColor] = useState('gray');
   const [modalOpened, setModalOpened] = useState(false);
-
-
+  const [file, setFile] = useState(null);
+  const [isTypeErr, setIsTypeErr] = useState(false);
+  const [onFileUploaded, setonFileUploaded] = useState(false);
+  const handleChange = (file) => {
+    setFile(file)
+  }
   return (
     <div className={styles.Header_container}>
       <div className={styles.Header_logo_box}>
@@ -73,18 +80,40 @@ const Header = () => {
               {/* <IoCloseOutline /> */}
             </div>
             <div className={styles.Popup_middle_box}>
-              <div className={styles.Drag_and_Drop}>
-                <CgSoftwareUpload color='grey' size={120} />
-              </div>
-              <p>동영상 파일을 드래그 앤 드롭하여 업로드</p>
+              <FileUploader
+                handleChange={handleChange} 
+                name="file" 
+                types={fileTypes}
+                children
+                onTypeError={() => {
+                  setIsTypeErr(true)
+                  setonFileUploaded(false)
+                }}
+                onDrop={() => {
+                  setIsTypeErr(false)
+                  setonFileUploaded(true)
+                }}
+                onSelect={() => {
+                  setIsTypeErr(false)
+                  setonFileUploaded(true)
+                }}
+              >
+                {
+                  isTypeErr ? <div style={{color: "red"}}>파일형식을 확인해주세요</div> 
+                  : onFileUploaded ? <div style={{color: "blue"}}>파일업로드 성공</div> 
+                  : <div>Drop here...</div>
+                }
+              </FileUploader>
+              <p>동영상 파일을 드래그 앤 드롭하여 업로드(JPG, PNG, GIF)</p>
               <span>동영상을 게시하기 전에는 비공개로 설정됩니다.</span>
-              <label for='input_file'>파일 선택</label>
+              <label className={styles.File_submit_label} for='input_file'>파일 선택</label>
               <input id='input_file' style={{display: "none"}} type="file"/>
             </div>
             <div className={styles.Popup_bottom_box}>
               <p>YouTube에 동영상을 제출하면 YouTube 서비스 약관 및 커뮤니티 가이드에 동의하게 됩니다.</p>
               <p>불법촬영물 게재시 삭제 조치되고 관련 법에 따라 처벌 받을 수 있습니다. 타인의 저작권 또는 개인정보 보호 권한을 침해해서는 안 됩니다.</p>
             </div>
+
           </div>
         </Popup>
         <img src='https://yt3.ggpht.com/ytc/AMLnZu9Jzp859A5IesAX3WqVFY0ocYhG3_oFkYuLlNlH1KPJhA=s88-c-k-c0x00ffffff-no-rj-mo'/>

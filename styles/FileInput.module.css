@@ -77,3 +77,17 @@
     color: grey;
     text-align: center;
 }
+
+
+.exAni {
+    width: 200px;
+    height: 200px;
+    position: fixed;
+    background-color: aquamarine;
+    border-radius: 50%;
+}
+.exAni div {
+    width: 2px;
+    height: 20px;
+    background-color: bisque;
+}

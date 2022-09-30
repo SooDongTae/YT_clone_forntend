@@ -7,8 +7,12 @@ import { VscMenu } from "react-icons/vsc"
 import  styles from '../styles/Header.module.css'
 import Popup from 'reactjs-popup';
 import FileInput from './FileInput'
+import TitleInput from './TitleInput'
 
-export const UploadStatus = React.createContext();
+export const UploadStatus = React.createContext({
+  fileTypes: [],
+  file: null,
+});
 
 
 const Header = () => {
@@ -18,6 +22,7 @@ const Header = () => {
   const [isInformMouseOver, setIsInformMouseOver] = useState(false);
   const [kColor, setKColor] = useState('gray');
   const [modalOpened, setModalOpened] = useState(false);
+  const status = useContext(UploadStatus)
   return (
     <div className={styles.Header_container}>
       <div className={styles.Header_logo_box}>
@@ -71,8 +76,13 @@ const Header = () => {
         >
           <div className={styles.Video_add_popup}>
             <UploadStatus.Provider 
-              value={{fileTypes: ["JPG", "PNG", "GIF", "JPEG"], file: null}}>
-              <FileInput />
+              value={{fileTypes: ["JPG", "PNG", "GIF", "JPEG"], file: null}}
+            >
+              {
+                status.file === null ?
+                <FileInput /> :
+                <TitleInput />
+              }
             </UploadStatus.Provider>
           </div>
         </Popup>

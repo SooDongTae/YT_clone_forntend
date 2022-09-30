@@ -15,6 +15,9 @@ const FileInput = () => {
     }
     return (
         <>
+            <div className={styles.exAni}>
+                <div></div>
+            </div>
             <div className={styles.Popup_top_box}>
                 <span>동영상 업로드</span>
             </div>

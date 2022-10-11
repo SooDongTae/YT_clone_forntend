@@ -8,7 +8,10 @@ import  styles from '../styles/Header.module.css'
 import Popup from 'reactjs-popup';
 import FileInput from './FileInput'
 import TitleInput from './TitleInput'
-
+import { useRecoilState } from 'recoil'
+import { openState } from './states'
+import OpenedSideBar from './OpenedSideBar'
+import SideBar from './SideBar'
 export const UploadStatus = React.createContext({
   fileTypes: [],
   file: null, 
@@ -23,10 +26,14 @@ const Header = () => {
   const [kColor, setKColor] = useState('gray');
   const [modalOpened, setModalOpened] = useState(false);
   const [status, setStatus] = useState(UploadStatus);
+  const [isOpened, setIsOpened] = useRecoilState(openState);
+  const [color, setColor] = useState(1);
   return (
+    <>
+    <div className={styles.Header}>
     <div className={styles.Header_container}>
       <div className={styles.Header_logo_box}>
-        <VscMenu className={styles.Header_menu} color='black' size='20'/>
+        <VscMenu className={styles.Header_menu} color='black' size='20' onClick={() => {setIsOpened(prev => (!prev))}} />
         <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlarhI6h34FuayM6pl2zHnEySeUy-uR5GCbQ&usqp=CAU' />
       </div>
       <div className={styles.Header_search_box}>
@@ -92,7 +99,55 @@ const Header = () => {
       { isMicMouseOver && <div className={styles.Mic_popup_box}>음성으로 검색</div> }
       { isMakeMouseOver && <div className={styles.Make_popup_box}>만들기</div> }
       { isInformMouseOver && <div className={styles.Inform_popup_box}>알림</div> }
+      
     </div>
+    <div className={`container`}>
+        <div className="category">
+              <div className={`detail ${color === 1 ? "active" : ""}`} onClick={()=> {setColor(1)}}>전체</div>
+              <div className={`detail ${color === 2 ? "active" : ""}`} onClick={()=> {setColor(2)}}>게임</div>
+              <div className={`detail ${color === 3 ? "active" : ""}`} onClick={()=> {setColor(3)}}>음악</div>
+              <div className={`detail ${color === 4 ? "active" : ""}`} onClick={()=> {setColor(4)}}>요리</div>
+              <div className={`detail ${color === 5 ? "active" : ""}`} onClick={()=> {setColor(5)}}>축구</div>
+        </div>
+      </div>
+    </div>
+    {isOpened ? <>
+    <OpenedSideBar />
+    </> : <><SideBar /></>}
+    <style jsx>{`
+    .container{
+      padding-top: 55px;
+      margin-left: 72px;
+    }
+    .container.show{
+      margin-left: 240px;
+    }
+    .category{
+        height: 58px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: 0.2s ease-in-out;
+      }
+      .detail{
+        cursor: pointer;
+        width: auto;
+        height: 32px;
+        line-height: 32px;
+        background-color: #f2f2f2;
+        min-width: 4%;
+        text-align: center;
+        margin-right: 1%;
+        border-radius: 20px;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+      }
+      .active{
+        background-color: black;
+        color: white;
+        transition: 0.2s ease-in-out;
+      }
+    `}</style>
+    </>
   )
 }
 

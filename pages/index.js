@@ -116,7 +116,7 @@ export default function Home() {
     .main_box{
       background-color: #f9f9f9;
       width: 100%;
-      height: 100%;
+      height: auto;
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(25%, auto));
     }
@@ -143,7 +143,6 @@ export default function Home() {
       margin-top: 113px;
       margin-left: 72px;
       width: 95%;
-      height: 100vh;
     }
     .main_container.show{
       margin-left: 240px;

@@ -11,7 +11,7 @@ import TitleInput from './TitleInput'
 
 export const UploadStatus = React.createContext({
   fileTypes: [],
-  file: null,
+  file: null, 
 });
 
 
@@ -22,7 +22,7 @@ const Header = () => {
   const [isInformMouseOver, setIsInformMouseOver] = useState(false);
   const [kColor, setKColor] = useState('gray');
   const [modalOpened, setModalOpened] = useState(false);
-  const status = useContext(UploadStatus)
+  const [status, setStatus] = useState(UploadStatus);
   return (
     <div className={styles.Header_container}>
       <div className={styles.Header_logo_box}>
@@ -76,10 +76,10 @@ const Header = () => {
         >
           <div className={styles.Video_add_popup}>
             <UploadStatus.Provider 
-              value={{fileTypes: ["JPG", "PNG", "GIF", "JPEG"], file: null}}
+              value={status}
             >
               {
-                status.file === null ?
+                status.file !== null ?
                 <FileInput /> :
                 <TitleInput />
               }

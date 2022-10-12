@@ -36,7 +36,9 @@ const Header = () => {
     <div className={styles.Header_container}>
       <div className={styles.Header_logo_box}>
         <VscMenu className={styles.Header_menu} color='black' size='20' onClick={() => {setIsOpened(prev => (!prev))}} />
-        <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlarhI6h34FuayM6pl2zHnEySeUy-uR5GCbQ&usqp=CAU' />
+        <Link href={"/"}>
+          <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlarhI6h34FuayM6pl2zHnEySeUy-uR5GCbQ&usqp=CAU' />
+        </Link>
       </div>
       <div className={styles.Header_search_box}>
         <div className={styles.Keyboard_in_search}>

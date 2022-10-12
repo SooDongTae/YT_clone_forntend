@@ -6,6 +6,7 @@ import { UploadStatus } from './Header';
 const FileInput = () => {
     const [isTypeErr, setIsTypeErr] = useState(false);
     const [onFileUploaded, setonFileUploaded] = useState(false);
+    const [next, setNext] = useState(false);
     const status = useContext(UploadStatus)
 
     const handleChange = (file) => {
@@ -15,11 +16,9 @@ const FileInput = () => {
     }
     return (
         <>
-            <div className={styles.exAni}>
-                <div></div>
-            </div>
             <div className={styles.Popup_top_box}>
                 <span>동영상 업로드</span>
+                { next ? <div className={styles.next_button_active}>다음</div> : <div className={styles.next_button}>다음</div>}
             </div>
             <div className={styles.Popup_middle_box}>
                 <FileUploader
@@ -34,12 +33,14 @@ const FileInput = () => {
                     onDrop={() => {
                         setIsTypeErr(false)
                         setonFileUploaded(true)
+                        setNext(true)
                         // setFile(e.target.value)
                         // console.log(file)
                     }}
                     onSelect={() => {
                         setIsTypeErr(false)
                         setonFileUploaded(true)
+                        setNext(true)
                         // setFile(e.target.value)
                         // console.log(file)
                     }}

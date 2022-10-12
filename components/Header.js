@@ -12,6 +12,7 @@ import { useRecoilState } from 'recoil'
 import { openState } from './states'
 import OpenedSideBar from './OpenedSideBar'
 import SideBar from './SideBar'
+import Link from 'next/link'
 export const UploadStatus = React.createContext({
   fileTypes: [],
   file: null, 
@@ -28,6 +29,7 @@ const Header = () => {
   const [status, setStatus] = useState(UploadStatus);
   const [isOpened, setIsOpened] = useRecoilState(openState);
   const [color, setColor] = useState(1);
+  const [searchText, setSearchText] = useState("");
   return (
     <>
     <div className={styles.Header}>
@@ -43,7 +45,10 @@ const Header = () => {
           onMouseLeave={() => {setKColor('gray')}}
           className={styles.Keyboard_icon} color={kColor} size='20' />
         </div>
-        <input className={styles.Header_input} type='text' placeholder='검색'/>
+        <input className={styles.Header_input} type='text' placeholder='검색'
+                onChange={(e) => {setSearchText(e.target.value)}}
+        />
+        <Link href={{ pathname: '/search', query: { keyword: searchText } }}>
         <div 
           onMouseOver={() => {setIsSearchMouseOver(true)}}
           onMouseLeave={() => {setIsSearchMouseOver(false)}}
@@ -51,6 +56,7 @@ const Header = () => {
         >
             <IoIosSearch color='gray' size='25'/>
         </div>
+        </Link>
         <div 
           onMouseOver={() => {setIsMicMouseOver(true)}}
           onMouseLeave={() => {setIsMicMouseOver(false)}}

@@ -13,6 +13,7 @@ import { openState } from './states'
 import OpenedSideBar from './OpenedSideBar'
 import SideBar from './SideBar'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 export const UploadStatus = React.createContext({
   fileTypes: [],
   file: null, 
@@ -30,6 +31,7 @@ const Header = () => {
   const [isOpened, setIsOpened] = useRecoilState(openState);
   const [color, setColor] = useState(1);
   const [searchText, setSearchText] = useState("");
+  const router = useRouter();
   return (
     <>
     <div className={styles.Header}>
@@ -49,6 +51,11 @@ const Header = () => {
         </div>
         <input className={styles.Header_input} type='text' placeholder='검색'
                 onChange={(e) => {setSearchText(e.target.value)}}
+                onKeyPress={(e) => {
+                  if(e.key === 'Enter'){
+                    router.push({pathname: 'search', query: {keyword: searchText}})
+                  }
+                }}
         />
         <Link href={{ pathname: '/search', query: { keyword: searchText } }}>
         <div 

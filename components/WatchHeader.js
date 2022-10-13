@@ -14,10 +14,7 @@ import OpenedSideBar from './OpenedSideBar'
 import SideBar from './SideBar'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-export const UploadStatus = React.createContext({
-  fileTypes: [],
-  file: null, 
-});
+export const UploadStatus = React.createContext();
 
 
 const WatchHeader = () => {
@@ -27,7 +24,6 @@ const WatchHeader = () => {
   const [isInformMouseOver, setIsInformMouseOver] = useState(false);
   const [kColor, setKColor] = useState('gray');
   const [modalOpened, setModalOpened] = useState(false);
-  const [status, setStatus] = useState(UploadStatus);
   const [searchText, setSearchText] = useState("");
   const [isOpened, setIsOpened] = useRecoilState(openState);
   const router = useRouter();
@@ -96,12 +92,15 @@ const WatchHeader = () => {
         >
           <div className={styles.Video_add_popup}>
             <UploadStatus.Provider 
-              value={status}
+              value={
+                {
+                  fileTypes: ["png", "jpeg", "jpg","mp4"],
+                  file: null
+                }
+              }
             >
               {
-                status.file !== null ?
-                <FileInput /> :
-                <TitleInput />
+                <FileInput />
               }
             </UploadStatus.Provider>
           </div>

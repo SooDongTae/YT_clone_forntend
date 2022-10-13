@@ -1,0 +1,15 @@
+.user_info_part {
+  /* margin-top: 113px; */
+  float: right;
+  width: calc(100% - 72px);
+  height: 200px;
+  background-color: antiquewhite;
+}
+.user_info_part.show {
+  width: calc(100% - 240px);
+}
+#Profile img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}

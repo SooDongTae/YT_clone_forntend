@@ -5,14 +5,15 @@ import { UploadStatus } from './Header';
 
 const FileInput = () => {
     const [isTypeErr, setIsTypeErr] = useState(false);
-    const [onFileUploaded, setonFileUploaded] = useState(false);
+    const [onFileUploaded, setOnFileUploaded] = useState(false);
     const [next, setNext] = useState(false);
     const status = useContext(UploadStatus)
+    console.log(status.fileTypes)
 
     const handleChange = (file) => {
-        status.file = file;
+        status.file = file
         console.log(status.file)
-        setonFileUploaded(true)
+        setOnFileUploaded(true)
     }
     return (
         <>
@@ -28,18 +29,19 @@ const FileInput = () => {
                     name='input_file'
                     onTypeError={() => {
                         setIsTypeErr(true)
-                        setonFileUploaded(false)
+                        setOnFileUploaded(false)
+                        setNext(false)
                     }}
                     onDrop={() => {
                         setIsTypeErr(false)
-                        setonFileUploaded(true)
+                        setOnFileUploaded(true)
                         setNext(true)
                         // setFile(e.target.value)
                         // console.log(file)
                     }}
                     onSelect={() => {
                         setIsTypeErr(false)
-                        setonFileUploaded(true)
+                        setOnFileUploaded(true)
                         setNext(true)
                         // setFile(e.target.value)
                         // console.log(file)
@@ -64,7 +66,7 @@ const FileInput = () => {
                     type="file"
                     onChange={(e) => {
                         status.file = e.target.files[0]
-                        setonFileUploaded(true)
+                        setOnFileUploaded(true)
                         console.log(status.file)
                     }}
                 />

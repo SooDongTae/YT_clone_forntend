@@ -21,8 +21,9 @@ const CommentPart = () => {
 
     const [commentsSample, setCommentsSample] = useState([
         {
-            imgSrc: "https://yt3.ggpht.com/ytc/AMLnZu_D4JwoqK3mF9YcK1b6_sQ8lvdQ-luwDuqt3w=s88-c-k-c0x00ffffff-no-rj",
-            userName: "TaeHi",
+            imgSrc: "https://yt3.ggpht.com/ytc/AMLnZu8rQyE9zHBy5XB7Y3vmnHXHHHBFdisJb_FWhg6J=s176-c-k-c0x00ffffff-no-rj",
+            userName: "코딩애플",
+            sub: "10.4만명",
             comment: "좋아요!!",
             good: 5,
             date: "2022/05/05",
@@ -30,6 +31,7 @@ const CommentPart = () => {
         {
             imgSrc: "https://lh3.googleusercontent.com/ogw/AOh-ky1uAXwkV8yiFs8KaB07AxluQj2nYO0d-RgdXzqr=s64-c-mo",
             userName: "DoHi",
+            sub: 4,
             comment: "정말 좋아요!!",
             good: 10,
             date: "2022/05/10"
@@ -37,6 +39,7 @@ const CommentPart = () => {
         {
             imgSrc: "https://yt3.ggpht.com/ytc/AMLnZu9kCKCBTyW3NUg0qiakoo_NPijLpMRjHyWyeUhO1-FAXAjbtINI76YzJSfQZ5JZCGnqUxU=s88-c-k-c0x00ffffff-no-rj",
             userName: "구크르",
+            sub: 0,
             comment: "정말 재밌어요!!",
             good: 2,
             date: "2022/05/25"

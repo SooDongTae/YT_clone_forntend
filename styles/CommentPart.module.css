@@ -74,7 +74,7 @@
 }
 .Comment_line {
     position: absolute;
-    top: 138%;
+    top: 113%;
     height: 1px;
     width: 63%;
     background-color: lightgrey;
@@ -82,7 +82,7 @@
 }
 .Comment_line_inAni {
     position: absolute;
-    top: 138%;
+    top: 113%;
     height: 2px;
     width: 63%;
     background-color: black;

@@ -27,6 +27,7 @@ const Header = () => {
   const [modalOpened, setModalOpened] = useState(false);
   const [status, setStatus] = useState(UploadStatus);
   const [isOpened, setIsOpened] = useRecoilState(openState);
+  const [search, setSearch] = useState("");
   const [color, setColor] = useState(1);
   return (
     <>
@@ -43,7 +44,7 @@ const Header = () => {
           onMouseLeave={() => {setKColor('gray')}}
           className={styles.Keyboard_icon} color={kColor} size='20' />
         </div>
-        <input className={styles.Header_input} type='text' placeholder='검색'/>
+        <input value={search} onChange={(e) => setSearch(e.target.value)} className={styles.Header_input} type='text' placeholder='검색'/>
         <div 
           onMouseOver={() => {setIsSearchMouseOver(true)}}
           onMouseLeave={() => {setIsSearchMouseOver(false)}}

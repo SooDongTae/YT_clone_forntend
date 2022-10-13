@@ -13,6 +13,29 @@
     font-size: 20px;
     padding-left: 3%;
 }
+.next_button {
+    width: 100px;
+    height: 30px;
+    background-color: lightgray;
+    border-radius: 5px;
+    text-align: center;
+    line-height: 30px;
+    margin-right: 40px;
+}
+.next_button_active {
+    width: 100px;
+    height: 30px;
+    background-color: rgb(0, 89, 255);
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+    line-height: 30px;
+    margin-right: 40px;
+}
+.next_button_active:hover {
+    background-color: rgb(0, 77, 192);
+    transition: 0.2s;
+}
 .Popup_middle_box {
     display: flex;
     flex-direction: column;

@@ -138,19 +138,19 @@
     color: white;
 }
 .Like_popup_box {
-    left: 500px;
+    left: 700px;
     top: 800px;
 }
 .Unlike_popup_box {
-    left: 600px;
-    top: 800px;
-}
-.Share_popup_box {
     left: 750px;
     top: 800px;
 }
+.Share_popup_box {
+    left: 900px;
+    top: 800px;
+}
 .Download_popup_box {
-    left: 820px;
+    left: 980px;
     top: 800px;
 }
 .More_info_box {

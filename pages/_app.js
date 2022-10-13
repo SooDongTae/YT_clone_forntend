@@ -6,7 +6,6 @@ import { useRouter } from 'next/router';
 import WatchHeader from '../components/watchHeader';
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
-  console.log(router);
   return (
     <>
     <RecoilRoot>

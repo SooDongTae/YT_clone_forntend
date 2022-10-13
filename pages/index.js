@@ -112,11 +112,12 @@ export default function Home() {
     </div>
     <style jsx>{`
     .container{
+      background-color: #f9f9f9;
     }
     .main_box{
-      background-color: #f9f9f9;
+      
       width: 100%;
-      height: auto;
+      height: 100%;
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(25%, auto));
     }

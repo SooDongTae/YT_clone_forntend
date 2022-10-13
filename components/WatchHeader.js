@@ -29,6 +29,7 @@ const WatchHeader = () => {
   const [modalOpened, setModalOpened] = useState(false);
   const [status, setStatus] = useState(UploadStatus);
   const [searchText, setSearchText] = useState("");
+  const [isOpened, setIsOpened] = useRecoilState(openState);
   const router = useRouter();
   return (
     <>

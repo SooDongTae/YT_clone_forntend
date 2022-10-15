@@ -1,15 +1,44 @@
 .user_info_part {
-  /* margin-top: 113px; */
+  margin-top: 55px;
   float: right;
   width: calc(100% - 72px);
-  height: 200px;
-  background-color: antiquewhite;
+  height: 180px;
+  background-color: rgb(250, 250, 250);
 }
-.user_info_part.show {
+.user_info_part_show {
+  margin-top: 55px;
+  float: right;
   width: calc(100% - 240px);
+  height: 200px;
+  background-color: rgb(250, 250, 250);
 }
 #Profile img {
   width: 80px;
   height: 80px;
   border-radius: 50%;
+}
+.profile_fl_box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.name_fl_box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.name_fl_box span {
+  color: grey;
+}
+.name_fl_box p {
+  font-size: 25px;
+  margin: 0;
+}
+.sub_button {
+  width: 80px;
+  height: 40px;
+  background-color: rgb(199, 8, 8);
+  color: white;
+  border-radius: 3px;
 }

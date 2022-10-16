@@ -8,7 +8,7 @@ import styles from "../styles/Login.module.css"
 //최은결 왔다감
 const Login = () => {
   function test(){
-    axios.post("http://192.168.10.210:8080/login",{username : "qkrruddnjs",password:"1234"})
+    axios.post("http://192.168.10.210:8000/login",{username : "test4321",password:"test4321"})
     .then((res)=>{
       console.log(res)
     }).catch((err)=>{

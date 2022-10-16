@@ -38,6 +38,7 @@
     margin-right: 10px;
 }
 .Comment_input_box {
+    position: relative;
     width: 100%;
     /* background-color: #787878; */
 }
@@ -74,17 +75,17 @@
 }
 .Comment_line {
     position: absolute;
-    top: 113%;
+    top: 20px;
     height: 1px;
-    width: 63%;
+    width: 100%;
     background-color: lightgrey;
     transition: 0.3s;
 }
 .Comment_line_inAni {
     position: absolute;
-    top: 113%;
+    top: 20px;
     height: 2px;
-    width: 63%;
+    width: 100%;
     background-color: black;
     animation-name: inputAnimation;
     animation-duration: 0.3s;

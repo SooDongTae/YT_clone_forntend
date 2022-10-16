@@ -28,7 +28,7 @@ const Register = () => {
       return
     }
     axios.post(
-      "http://192.168.10.210:8080/register",
+      "http://192.168.10.210:8000/register",
       {
         username: id,
         password: pwd,

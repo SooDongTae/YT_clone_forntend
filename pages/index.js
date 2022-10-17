@@ -88,7 +88,7 @@ export default function Home() {
     <div className={`main_container ${isOpened ? "show" : ""}`}>
       <div className="main_box">
         {videos.map((data, index) => (
-          <div className='video'>
+          <div className={`video ${isOpened ? "show" : ""}`}>
             <div className='Thumbnail_box'>
               <img src={data.img} className="Thumbnail" />
             </div>
@@ -162,6 +162,12 @@ export default function Home() {
     .numAndCreatedAt, .user_name{
       font-size: 14px;
       color: #606060;
+    }
+    .video.show{
+      height: 18vw;
+    }
+    .video{
+      height: 20.5vw;
     }
     `}</style>
     </>

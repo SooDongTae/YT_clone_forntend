@@ -73,3 +73,21 @@
   color: rgb(151, 151, 151);
   border-radius: 3px;
 }
+.profile_taps {
+  margin-left: 2%;
+  width: 50%;
+  height: 30%;
+  /* background-color: blue; */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.profile_taps_box {
+  width: 100px;
+  text-align: center;
+  font-size: 14px;
+  color: grey;
+}
+.profile_taps_box:hover {
+  color: black;
+}

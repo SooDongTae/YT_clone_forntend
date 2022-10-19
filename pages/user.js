@@ -38,7 +38,14 @@ const user = () => {
             </div>
           </div>
         </div>
-        {/* nav 부분 */}
+        <div className={styles.profile_taps}>
+            <div className={styles.profile_taps_box}>홈</div>
+            <div className={styles.profile_taps_box}>동영상</div>
+            <div className={styles.profile_taps_box}>재생목록</div>
+            <div className={styles.profile_taps_box}>커뮤니티</div>
+            <div className={styles.profile_taps_box}>채널</div>
+            <div className={styles.profile_taps_box}>정보</div>
+        </div>
       </div>
     </div>
     </>

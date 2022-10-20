@@ -9,15 +9,28 @@
   margin-top: 55px;
   float: right;
   width: calc(100% - 240px);
-  height: 200px;
+  height: 180px;
   background-color: rgb(250, 250, 250);
+}
+.Top_profile {
+  width: 100%;
+  height: 70%;
+}
+.profile_box {
+  width: 20%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
 #Profile img {
   width: 80px;
   height: 80px;
   border-radius: 50%;
+  margin-right: 10%;
 }
 .profile_fl_box {
+  height: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -35,10 +48,56 @@
   font-size: 25px;
   margin: 0;
 }
+.sub_button_box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  line-height: 35px;
+  margin-right: 5%;
+  font-size: 14px;
+}
 .sub_button {
-  width: 80px;
-  height: 40px;
+  width: 70px;
+  height: 35px;
   background-color: rgb(199, 8, 8);
   color: white;
   border-radius: 3px;
+}
+.sub_button_isSub {
+  margin-right: 15%;
+  width: 70px;
+  height: 35px;
+  background-color: rgb(230, 230, 230);
+  color: rgb(151, 151, 151);
+  border-radius: 3px;
+}
+.profile_taps {
+  margin-left: 2%;
+  width: 50%;
+  height: 30%;
+  /* background-color: blue; */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.profile_taps_box {
+  width: 100px;
+  text-align: center;
+  font-size: 14px;
+  color: grey;
+}
+.profile_taps_box:hover {
+  color: black;
+}
+.video {
+  float: right;
+  width: calc(100% - 72px);
+  height: 100%;
+}
+.video_show {
+  float: right;
+  width: calc(100% - 240px);
+  height: 100%;
 }

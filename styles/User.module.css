@@ -9,7 +9,7 @@
   margin-top: 55px;
   float: right;
   width: calc(100% - 240px);
-  height: 200px;
+  height: 180px;
   background-color: rgb(250, 250, 250);
 }
 .Top_profile {
@@ -90,4 +90,14 @@
 }
 .profile_taps_box:hover {
   color: black;
+}
+.video {
+  float: right;
+  width: calc(100% - 72px);
+  height: 100%;
+}
+.video_show {
+  float: right;
+  width: calc(100% - 240px);
+  height: 100%;
 }

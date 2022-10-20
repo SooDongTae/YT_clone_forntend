@@ -1,4 +1,4 @@
-import React, { useState, useContext, createContext } from 'react'
+import React, { useState, useContext, createContext, useEffect } from 'react'
 import { IoIosSearch, IoCloseOutline } from "react-icons/io"
 import { BsFillMicFill, BsKeyboardFill, BsBell } from "react-icons/bs"
 import { AiOutlineVideoCameraAdd } from "react-icons/ai"
@@ -33,6 +33,9 @@ const Header = () => {
   const [color, setColor] = useState(1);
   const [searchText, setSearchText] = useState("");
   const router = useRouter();
+  useEffect(() => {
+    console.log(searchText);
+  }, [searchText]);
   return (
     <>
     <div className={styles.Header}>
@@ -54,19 +57,25 @@ const Header = () => {
                 onChange={(e) => {setSearchText(e.target.value)}}
                 onKeyPress={(e) => {
                   if(e.key === 'Enter'){
-                    router.push({pathname: 'search', query: {keyword: searchText}})
+                    if(searchText !== ''){
+                      router.push({pathname: 'search', query: {keyword: searchText}})
+                    }
                   }
                 }}
         />
-        <Link href={{ pathname: '/search', query: { keyword: searchText } }}>
         <div 
           onMouseOver={() => {setIsSearchMouseOver(true)}}
           onMouseLeave={() => {setIsSearchMouseOver(false)}}
           className={styles.Header_submit}
+          onClick={() => {
+            console.info(searchText);
+            if(searchText !== '') {
+            router.push({pathname: 'search', query: {keyword: searchText}})
+            }
+          }}
         >
-            <IoIosSearch color='gray' size='25'/>
+          <IoIosSearch color='gray' size='25'/>
         </div>
-        </Link>
         <div 
           onMouseOver={() => {setIsMicMouseOver(true)}}
           onMouseLeave={() => {setIsMicMouseOver(false)}}

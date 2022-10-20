@@ -26,10 +26,7 @@ const WatchHeader = () => {
   const [modalOpened, setModalOpened] = useState(false);
   const [searchText, setSearchText] = useState("");
   const [isOpened, setIsOpened] = useRecoilState(openState);
-  const router = useRouter();
-  useEffect(() => {
-    console.log(searchText);
-  }, [searchText]);
+  
   return (
     <>
     <div className={styles.Header_container}>
@@ -61,7 +58,6 @@ const WatchHeader = () => {
           onMouseLeave={() => {setIsSearchMouseOver(false)}}
           className={styles.Header_submit}
           onClick={() => {
-            console.info(searchText);
             if(searchText !== '') {
             router.push({pathname: 'search', query: {keyword: searchText}})
             }

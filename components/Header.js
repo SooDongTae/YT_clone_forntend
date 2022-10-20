@@ -33,9 +33,6 @@ const Header = () => {
   const [color, setColor] = useState(1);
   const [searchText, setSearchText] = useState("");
   const router = useRouter();
-  useEffect(() => {
-    console.log(searchText);
-  }, [searchText]);
   return (
     <>
     <div className={styles.Header}>
@@ -68,7 +65,6 @@ const Header = () => {
           onMouseLeave={() => {setIsSearchMouseOver(false)}}
           className={styles.Header_submit}
           onClick={() => {
-            console.info(searchText);
             if(searchText !== '') {
             router.push({pathname: 'search', query: {keyword: searchText}})
             }

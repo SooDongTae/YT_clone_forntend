@@ -1,4 +1,4 @@
-import React, { useState, useContext, createContext } from 'react'
+import React, { useState, useContext, createContext, useEffect } from 'react'
 import { IoIosSearch, IoCloseOutline } from "react-icons/io"
 import { BsFillMicFill, BsKeyboardFill, BsBell } from "react-icons/bs"
 import { AiOutlineVideoCameraAdd } from "react-icons/ai"
@@ -26,7 +26,7 @@ const WatchHeader = () => {
   const [modalOpened, setModalOpened] = useState(false);
   const [searchText, setSearchText] = useState("");
   const [isOpened, setIsOpened] = useRecoilState(openState);
-  const router = useRouter();
+  
   return (
     <>
     <div className={styles.Header_container}>
@@ -47,19 +47,25 @@ const WatchHeader = () => {
                 onChange={(e) => {setSearchText(e.target.value)}}
                 onKeyPress={(e) => {
                   if(e.key === 'Enter'){
-                    router.push({pathname: 'search', query: {keyword: searchText}})
+                    if(searchText !== ''){
+                      router.push({pathname: 'search', query: {keyword: searchText}})
+                    }
                   }
                 }}
         />
-        <Link href={{ pathname: '/search', query: { keyword: searchText } }}>
         <div 
           onMouseOver={() => {setIsSearchMouseOver(true)}}
           onMouseLeave={() => {setIsSearchMouseOver(false)}}
           className={styles.Header_submit}
+          onClick={() => {
+            if(searchText !== '') {
+            router.push({pathname: 'search', query: {keyword: searchText}})
+            }
+          }}
         >
             <IoIosSearch color='gray' size='25'/>
         </div>
-        </Link>
+        
         <div 
           onMouseOver={() => {setIsMicMouseOver(true)}}
           onMouseLeave={() => {setIsMicMouseOver(false)}}

@@ -7,7 +7,7 @@ import OpenedSideBar from '../components/OpenedSideBar'
 import SideBar from '../components/SideBar'
 import { openState } from '../components/states'
 import { AiOutlineBell } from 'react-icons/ai'
-import NextVideo from '../components/NextVideo'
+import UserVideo from '../components/UserVideo'
 
 const user = () => {
   const [isOpened, setIsOpened] = useRecoilState(openState);
@@ -49,10 +49,12 @@ const user = () => {
         </div>
       </div>
       <div className={isOpened ? styles.video_show : styles.video}>
-        <NextVideo />
-        <NextVideo />
-        <NextVideo />
-        <NextVideo />
+        <UserVideo />
+        <UserVideo />
+        <UserVideo />
+        <UserVideo />
+        <UserVideo />
+        <UserVideo />
       </div>
     </div>
     </>

@@ -95,9 +95,15 @@
   float: right;
   width: calc(100% - 72px);
   height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
 }
 .video_show {
   float: right;
   width: calc(100% - 240px);
   height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
 }

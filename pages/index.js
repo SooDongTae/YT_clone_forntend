@@ -132,6 +132,7 @@ export default function Home() {
     }
     .title_box{
       margin-left: 15px;
+      margin-top: 3px;
     }
     .user_name_box{
       margin-left: 70px;
@@ -169,6 +170,7 @@ export default function Home() {
     .video{
       height: 20.5vw;
     }
+
     `}</style>
     </>
   )

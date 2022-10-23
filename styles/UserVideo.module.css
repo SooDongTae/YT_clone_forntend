@@ -1,0 +1,76 @@
+.Next_video {
+  width: 90%;
+  height: 100px;
+  /* background-color: aliceblue; */
+  display: flex;
+  flex-direction: row;
+  margin-top: 15px;
+}
+.Next_video img {
+  height: 100%;
+  margin-right: 5px;
+}
+.Video_info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.Video_info p {
+  position: relative;
+  top: -10px;
+  font-size: 14px;
+  font-weight: 600;
+  width: 210px;
+}
+.Video_info span {
+  color: grey;
+  font-size: 12px;
+}
+.Thumbnail_box {
+  height: 100px;
+
+}
+.Thumbnail_icons {
+  position: relative;
+  top: -100px;
+  left: 65px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.Video_time {
+  position: relative;
+  top: 72px;
+  color: white;
+  background-color: black;
+  /* opacity: 0.8; */
+  font-size: 12px;
+  padding: 3px;
+}
+.Video_time_action {
+  color: white;
+  background-color: black;
+  /* opacity: 0.8; */
+  font-size: 12px;
+  padding: 3px;
+}
+.Thumbnail_icon {
+  width: 30px;
+  height: 30px;
+  background-color: black;
+  opacity: 0.8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 3px;
+  border-radius: 3px;
+}
+.Next_video_menu {
+  position: relative;
+  top: 2px;
+  left: 5px;
+}
+
+.Content_video {
+  border: 1px solid #000;
+}

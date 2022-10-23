@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import styles from "../styles/NextVideo.module.css";
+import styles from "../styles/UserVideo.module.css";
 import { BiTimeFive, BiDotsVerticalRounded } from "react-icons/bi"
 import { RiPlayList2Fill } from "react-icons/ri"
 
@@ -33,7 +33,6 @@ const UserVideo = () => {
             </div>
             <div className={styles.Video_info}>
                 <p>Wiz Khalifa - See You Again ft. Charlie Puth [Official Video]</p>
-                <span>{name}</span>
                 <span>조회수 {watch}회 • {date}년전</span>
             </div>
             {

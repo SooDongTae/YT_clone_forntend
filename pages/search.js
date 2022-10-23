@@ -143,7 +143,7 @@ const Search = () => {
               margin-top: 60px;
               margin-left: auto;
               margin-right: auto;
-              width: 80%;
+              width: 90%;
               height: auto;
             }
             .Thumbnail_box{

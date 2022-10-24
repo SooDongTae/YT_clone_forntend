@@ -1,9 +1,10 @@
-import React, { useState, useRef, useMemo } from 'react'
+import React, { useState, useRef, useMemo, useEffect } from 'react'
 import styles from "../styles/VideoPart.module.css"
 import { RiShareForwardLine, RiScissorsLine, RiPlayListAddLine } from "react-icons/ri"
 import { HiDownload, HiOutlineDotsHorizontal } from "react-icons/hi"
 import CommentPart from './CommentPart'
 import { IoMdThumbsDown, IoMdThumbsUp } from 'react-icons/io'
+import axios from 'axios'
 
 const VideoPart = () => {
     const [isLikeMouseOver, setIsLikeMouseOver] = useState(false);
@@ -26,9 +27,19 @@ const VideoPart = () => {
         return comment
     }, [isShowMore])
 
+    useEffect(() => {
+        axios.get('http://127.0.0.1:8000/getallvideo').then((response) => {
+            console.log(response.data);
+        }).catch((Error) => {
+            console.log(Error);
+        })
+    }, [])
+
     return (
         <>
-            <div className={styles.Video}></div>
+            <div className={styles.Video}>
+                
+            </div>
             <div className={styles.Video_info_box}>
                 <div className={styles.Video_title_box}>
                     <span>#SeeYouAgain</span>

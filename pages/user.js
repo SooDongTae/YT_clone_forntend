@@ -8,6 +8,7 @@ import SideBar from '../components/SideBar'
 import { openState } from '../components/states'
 import { AiOutlineBell } from 'react-icons/ai'
 import UserVideo from '../components/UserVideo'
+import { FaPlay } from 'react-icons/fa'
 
 const user = () => {
   const [isOpened, setIsOpened] = useRecoilState(openState);
@@ -49,12 +50,22 @@ const user = () => {
         </div>
       </div>
       <div className={isOpened ? styles.video_show : styles.video}>
-        <UserVideo />
-        <UserVideo />
-        <UserVideo />
-        <UserVideo />
-        <UserVideo />
-        <UserVideo />
+        <div className={styles.uploaded_video}>
+          <div>
+            <p>업로드한 동영상</p>
+            <FaPlay color='grey' />
+            <span>모두 재생</span>
+          </div>
+          <div className={styles.uploaded_video_box}>
+            <UserVideo />
+            <UserVideo />
+            <UserVideo />
+            <UserVideo />
+            <UserVideo />
+            <UserVideo />
+          </div>
+        </div>
+        
       </div>
     </div>
     </>

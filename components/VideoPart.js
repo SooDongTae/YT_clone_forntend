@@ -4,6 +4,7 @@ import { RiShareForwardLine, RiScissorsLine, RiPlayListAddLine } from "react-ico
 import { HiDownload, HiOutlineDotsHorizontal } from "react-icons/hi"
 import CommentPart from './CommentPart'
 import { IoMdThumbsDown, IoMdThumbsUp } from 'react-icons/io'
+import Iframe from 'react-iframe'
 
 const VideoPart = () => {
     const [isLikeMouseOver, setIsLikeMouseOver] = useState(false);
@@ -26,9 +27,13 @@ const VideoPart = () => {
         return comment
     }, [isShowMore])
 
+    
+
     return (
         <>
-            <div className={styles.Video}></div>
+            <div className={styles.Video}>
+                
+            </div>
             <div className={styles.Video_info_box}>
                 <div className={styles.Video_title_box}>
                     <span>#SeeYouAgain</span>

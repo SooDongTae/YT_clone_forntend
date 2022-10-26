@@ -26,7 +26,7 @@ const WatchHeader = () => {
   const [modalOpened, setModalOpened] = useState(false);
   const [searchText, setSearchText] = useState("");
   const [isOpened, setIsOpened] = useRecoilState(openState);
-  
+  const router = useRouter();
   return (
     <>
     <div className={styles.Header_container}>

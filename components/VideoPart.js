@@ -1,11 +1,12 @@
-import React, { useState, useRef, useMemo } from 'react'
+import React, { useState, useRef, useMemo, useEffect } from 'react'
 import styles from "../styles/VideoPart.module.css"
 import { RiShareForwardLine, RiScissorsLine, RiPlayListAddLine } from "react-icons/ri"
 import { HiDownload, HiOutlineDotsHorizontal } from "react-icons/hi"
 import CommentPart from './CommentPart'
 import { IoMdThumbsDown, IoMdThumbsUp } from 'react-icons/io'
+import axios from 'axios'
 
-const VideoPart = () => {
+const VideoPart = ( {data} ) => {
     const [isLikeMouseOver, setIsLikeMouseOver] = useState(false);
     const [isUnlikeMouseOver, setIsUnlikeMouseOver] = useState(false);
     const [isShareMouseOver, setIsShareMouseOver] = useState(false);
@@ -13,6 +14,7 @@ const VideoPart = () => {
     const [isGood, setIsGood] = useState(false);
     const [isBad, setIsBad] = useState(false);
     const [isShowMore, setIsShowMore] = useState(false);
+    const [comments, setComments] = useState([]);
     const textLimit = useRef(170)
 
     const comment = "설명란, ------------------------, 설명란, ------------------------, 설명란, ------------------------, 설명란, ------------------------, 설명란, ------------------------, 설명란, ------------------------, 설명란, ------------------------, 설명란, ------------------------, 설명란, ------------------------, 설명란, ------------------------, 설명란, ------------------------, 설명란, ------------------------, 설명란, ------------------------, 설명란, ------------------------, 설명란, ------------------------, 설명란, ------------------------, "
@@ -25,15 +27,24 @@ const VideoPart = () => {
         }
         return comment
     }, [isShowMore])
-
+    useEffect(() => {
+        console.log(data.video_id);
+        axios.get(`http://10.150.151.12:8000/getcomments?id=${data.video_id}`)
+        .then(res => {
+            setComments(res.data.data);
+            console.log(res.data.data);
+        })
+    }, [data, ]);
+    console.log(data); 
     return (
         <>
-            <div className={styles.Video}></div>
+            <div className={styles.Video} dangerouslySetInnerHTML={{__html: data.link }}>
+            </div>
             <div className={styles.Video_info_box}>
                 <div className={styles.Video_title_box}>
                     <span>#SeeYouAgain</span>
-                    <p>Wiz Khalifa - See You Again ft. Charlie Puth [Official Video] Furious 7 Soundtrack</p>
-                    <p className={styles.Video_views}>조회수 503242회 • 2022. 9. 2.</p>
+                    <p>{data.title}</p>
+                    <p className={styles.Video_views}>조회수 {data.views}회 • {data.create_at}</p>
                 </div>
                 <hr className={styles.Line_under_option} />
                 <div className={styles.Video_option}>
@@ -107,7 +118,7 @@ const VideoPart = () => {
                 </div>
                 <hr style={{top: "0"}} className={styles.Line_under_option} />
                 <div className={styles.CommentPart}>
-                    <CommentPart />
+                    <CommentPart comments={comments} id={data.video_id} />
                 </div>
             </div>
         </>

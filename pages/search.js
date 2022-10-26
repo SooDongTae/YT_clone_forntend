@@ -1,95 +1,104 @@
+
 import { useRouter } from "next/router"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { useRecoilState } from "recoil"
 import OpenedSideBar from "../components/OpenedSideBar"
 import SideBar from "../components/SideBar"
 import { openState } from "../components/states"
+import axios from "axios"
 
 const Search = () => {
     const router = useRouter()
-    const {keyword} = router.query
+    const {keyword} = router.query;
     const [isOpened, setIsOpened] = useRecoilState(openState);
-    const videos = [
-        {
-          img: "/thumb.jpeg",
-          title: "titlesadkhajjdsa",
-          user_name: "user",
-          user_profile: "/profile.png",
-          num: "152",
-          created_at: "2022.09.29",
-          explain: "youtube_clone_coding"
-        },
-        {
-          img: "/thumb.jpeg",
-          title: "title",
-          user_name: "user",
-          user_profile: "/profile.png",
-          num: "152",
-          created_at: "2022.09.29",
-          explain: "youtube_clone_coding"
-        },
-        {
-          img: "/thumb.jpeg",
-          title: "title",
-          user_name: "user",
-          user_profile: "/profile.png",
-          num: "152",
-          created_at: "2022.09.29",
-          explain: "youtube_clone_coding"
-        },
-        {
-          img: "/thumb.jpeg",
-          title: "title",
-          user_name: "user",
-          user_profile: "/profile.png",
-          num: "152",
-          created_at: "2022.09.29"
-        },
-        {
-          img: "/thumb.jpeg",
-          title: "title",
-          user_name: "user",
-          user_profile: "/profile.png",
-          num: "152",
-          created_at: "2022.09.29"
-        },
-        {
-          img: "/thumb.jpeg",
-          title: "title",
-          user_name: "user",
-          user_profile: "/profile.png",
-          num: "152",
-          created_at: "2022.09.29",
-          explain: "youtube_clone_coding"
-        },
-        {
-          img: "/thumb.jpeg",
-          title: "title",
-          user_name: "user",
-          user_profile: "/profile.png",
-          num: "152",
-          created_at: "2022.09.29",
-          explain: "youtube_clone_coding"
-        },
-        {
-          img: "/thumb.jpeg",
-          title: "title",
-          user_name: "user",
-          user_profile: "/profile.png",
-          num: "152",
-          created_at: "2022.09.29",
-          explain: "youtube_clone_coding"
-        },
-        {
-          img: "/thumb.jpeg",
-          title: "title",
-          user_name: "user",
-          user_profile: "/profile.png",
-          num: "152",
-          created_at: "2022.09.29",
-          explain: "youtube_clone_coding"
-        }
-      ]
+    // const videos = [
+    //     {
+    //       img: "/thumb.jpeg",
+    //       title: "titlesadkhajjdsa",
+    //       user_name: "user",
+    //       user_profile: "/profile.png",
+    //       num: "152",
+    //       created_at: "2022.09.29",
+    //       explain: "youtube_clone_coding"
+    //     },
+    //     {
+    //       img: "/thumb.jpeg",
+    //       title: "title",
+    //       user_name: "user",
+    //       user_profile: "/profile.png",
+    //       num: "152",
+    //       created_at: "2022.09.29",
+    //       explain: "youtube_clone_coding"
+    //     },
+    //     {
+    //       img: "/thumb.jpeg",
+    //       title: "title",
+    //       user_name: "user",
+    //       user_profile: "/profile.png",
+    //       num: "152",
+    //       created_at: "2022.09.29",
+    //       explain: "youtube_clone_coding"
+    //     },
+    //     {
+    //       img: "/thumb.jpeg",
+    //       title: "title",
+    //       user_name: "user",
+    //       user_profile: "/profile.png",
+    //       num: "152",
+    //       created_at: "2022.09.29"
+    //     },
+    //     {
+    //       img: "/thumb.jpeg",
+    //       title: "title",
+    //       user_name: "user",
+    //       user_profile: "/profile.png",
+    //       num: "152",
+    //       created_at: "2022.09.29"
+    //     },
+    //     {
+    //       img: "/thumb.jpeg",
+    //       title: "title",
+    //       user_name: "user",
+    //       user_profile: "/profile.png",
+    //       num: "152",
+    //       created_at: "2022.09.29",
+    //       explain: "youtube_clone_coding"
+    //     },
+    //     {
+    //       img: "/thumb.jpeg",
+    //       title: "title",
+    //       user_name: "user",
+    //       user_profile: "/profile.png",
+    //       num: "152",
+    //       created_at: "2022.09.29",
+    //       explain: "youtube_clone_coding"
+    //     },
+    //     {
+    //       img: "/thumb.jpeg",
+    //       title: "title",
+    //       user_name: "user",
+    //       user_profile: "/profile.png",
+    //       num: "152",
+    //       created_at: "2022.09.29",
+    //       explain: "youtube_clone_coding"
+    //     },
+    //     {
+    //       img: "/thumb.jpeg",
+    //       title: "title",
+    //       user_name: "user",
+    //       user_profile: "/profile.png",
+    //       num: "152",
+    //       created_at: "2022.09.29",
+    //       explain: "youtube_clone_coding"
+    //     }
+    //   ]
+    const [videos, setVideos] = useState([]);
+    useEffect(() => {
+      axios.get(`http://10.150.151.12:8000/searchbyname?name=${keyword}`)
+      .then(res => {
+        setVideos(res.data.data);
+      })
+    }, [keyword, []]);
       return (
         <>
         {isOpened ? <>
@@ -99,23 +108,25 @@ const Search = () => {
             
             <div className="mainBox">
             {videos.map((data, index) => (
-              <div className="video_box">
+              <div className="video_box" onClick={() => {
+                router.push({pathname: 'watch', query: {id: data.video_id}});
+              }}>
                 <div className="Thumbnail_box">
-                  <img src={data.img} className="Thumbnail" />
+                  <img src={data.thumbnail} className="Thumbnail" />
                 </div>
                 <div className="other_Box">
                   <div className="title_box">
                     {data.title}
                   </div>
                   <div className="createdAt_box">
-                    <span className="numAndCreatedAt">조회수 {data.num} • {data.created_at}</span>
+                    <span className="numAndCreatedAt">조회수 {data.views} • {data.create_at}</span>
                   </div>
                   <div className="user_profile_box">
                     <img src={data.user_profile} className="user_profile" />
                     <span className="user_name">{data.user_name}</span>
                   </div>
                   <div className="explain_box">
-                    {data.explain}
+                    {data.content}
                   </div>
                 </div>
               </div>
@@ -148,15 +159,17 @@ const Search = () => {
             }
             .Thumbnail_box{
               width: 40%;
-              height: 60%;
+              height: 100%;
 
             }
             .Thumbnail{
               width: 100%;
+              height: 100%;
             }
             .video_box{
               display: flex;
               margin-top: 2%;
+              height: 300px; 
             }
             .other_Box{
               margin-left: 10px;

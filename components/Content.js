@@ -3,13 +3,13 @@ import styles from "../styles/Content.module.css"
 import NextVideo from './NextVideo';
 import VideoPart from './VideoPart';
 
-const Content = () => {
+const Content = (props) => {
     const [cateColor, setCateColor] = useState(0);
     return (
         <>
         <div className={styles.Content_container}>
             <div className={styles.Video_part}>
-                <VideoPart />
+                <VideoPart data={props.data} />
             </div>
             <div className={styles.Other_video_part}>
                 <div>

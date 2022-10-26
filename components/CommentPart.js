@@ -2,15 +2,16 @@ import React, { useState } from 'react'
 import styles from "../styles/CommentPart.module.css"
 import { MdSort } from "react-icons/md"
 import Comment from './Comment';
+import axios from 'axios';
 
 
 
-const CommentPart = () => {
+const CommentPart = ( {comments, id} ) => {
     const [firstFocus, setFirstFocus] = useState(false);
     const [isFocus, setIsFocus] = useState(false);
     const [isInput, setIsInput] = useState(false);
     const [inputComment, setInputComment] = useState("");
-
+    console.log(comments, id);
     const Me = {
         imgSrc: "https://yt3.ggpht.com/ytc/AMLnZu9Jzp859A5IesAX3WqVFY0ocYhG3_oFkYuLlNlH1KPJhA=s88-c-k-c0x00ffffff-no-rj-mo",
         userName: "이태현",
@@ -18,38 +19,15 @@ const CommentPart = () => {
         good: 0,
         date: "2022/09/21"
     }
-
-    const [commentsSample, setCommentsSample] = useState([
-        {
-            imgSrc: "https://yt3.ggpht.com/ytc/AMLnZu8rQyE9zHBy5XB7Y3vmnHXHHHBFdisJb_FWhg6J=s176-c-k-c0x00ffffff-no-rj",
-            userName: "코딩애플",
-            sub: "10.4만명",
-            comment: "좋아요!!",
-            good: 5,
-            date: "2022/05/05",
-        },
-        {
-            imgSrc: "https://lh3.googleusercontent.com/ogw/AOh-ky1uAXwkV8yiFs8KaB07AxluQj2nYO0d-RgdXzqr=s64-c-mo",
-            userName: "DoHi",
-            sub: 4,
-            comment: "정말 좋아요!!",
-            good: 10,
-            date: "2022/05/10"
-        },
-        {
-            imgSrc: "https://yt3.ggpht.com/ytc/AMLnZu9kCKCBTyW3NUg0qiakoo_NPijLpMRjHyWyeUhO1-FAXAjbtINI76YzJSfQZ5JZCGnqUxU=s88-c-k-c0x00ffffff-no-rj",
-            userName: "구크르",
-            sub: 0,
-            comment: "정말 재밌어요!!",
-            good: 2,
-            date: "2022/05/25"
-        },
-    ])
+    async function insert(comment){
+        const form = {video_id: id, token: localStorage.getItem("token"), text: comment};
+        await axios.post("http://10.150.151.12:8000/addcomment", form);
+    }
   return (
     <div>
-        <div className={styles.Comment_box}>
+        <div className={styles.Comment_box}>        
             <div className={styles.Comment_sort_box}>
-                <span className={styles.Comment_number}>댓글 {commentsSample.length}개</span>
+                <span className={styles.Comment_number}>댓글 {comments.length}개</span>
                 <div>
                     <MdSort size={30}/>
                     <span className={styles.Comment_sort}>정렬 기준</span>
@@ -99,9 +77,10 @@ const CommentPart = () => {
                                         className={styles.Comment_buttons}
                                         onClick={() => {
                                             Me.comment = inputComment
-                                            setCommentsSample([Me, ...commentsSample])
+                                            insert(inputComment)
                                             setInputComment("")
                                             setIsInput(false)
+                                            
                                         }}
                                     >
                                         댓글
@@ -115,7 +94,7 @@ const CommentPart = () => {
             </div>
             <div className='Comments_list'>
                 {
-                    commentsSample.map((comment, idx) => {
+                    comments.map((comment, idx) => {
                         return <Comment comment={comment} key={idx} />
                     })
                 }

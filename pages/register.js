@@ -1,6 +1,8 @@
 import axios from 'axios';
 import Link from 'next/link'
+import { useRouter } from 'next/router';
 import React, { useState } from 'react'
+import { Router } from 'react-router';
 import styles from "../styles/Register.module.css"
 
 const Register = () => {
@@ -11,7 +13,7 @@ const Register = () => {
   const [id, setId] = useState("");
   const [pwd, setPwd] = useState("");
   const [checkPwd, setCheckPwd] = useState("");
-
+  const router = useRouter();
   const register = (e) => {
     e.preventDefault()
     setName(firstName + lastName);
@@ -36,6 +38,7 @@ const Register = () => {
       }
     ).then((response) => {
       console.log(response.data)
+      router.push('/login');
     }).catch((err)=>{
       console.log("err")
     })

@@ -14,6 +14,7 @@ import OpenedSideBar from './OpenedSideBar'
 import SideBar from './SideBar'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+import axios from 'axios'
 export const UploadStatus = React.createContext({
   fileTypes: [],
   file: null, 
@@ -32,7 +33,20 @@ const Header = () => {
   const [search, setSearch] = useState("");
   const [color, setColor] = useState(1);
   const [searchText, setSearchText] = useState("");
+  const [isLogged, setIsLogged] = useState(false);
+  const [userprofile, setUser] = useState('');
   const router = useRouter();
+  useEffect(() => {
+    if(localStorage.getItem('token') !== null){
+      setIsLogged(true);
+      axios.get(`http://10.150.151.12:8000/getprofile1?token=${localStorage.getItem('token')}`)
+            .then(res=>{
+              setUser(res.data.data[0].profile);
+              console.log(res.data.data[0].profile);
+            })
+    }
+  }, []);
+  console.log(userprofile);
   return (
     <>
     <div className={styles.Header}>
@@ -114,7 +128,7 @@ const Header = () => {
             </UploadStatus.Provider>
           </div>
         </Popup>
-        <img src='https://yt3.ggpht.com/ytc/AMLnZu9Jzp859A5IesAX3WqVFY0ocYhG3_oFkYuLlNlH1KPJhA=s88-c-k-c0x00ffffff-no-rj-mo'/>
+        {isLogged ? <img src={userprofile}/> : <Link href="/login"><div>로그인</div></Link>}
       </div>
       { isSearchMouseOver && <div className={styles.Search_popup_box}>검색</div> }
       { isMicMouseOver && <div className={styles.Mic_popup_box}>음성으로 검색</div> }

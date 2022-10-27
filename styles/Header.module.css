@@ -112,6 +112,7 @@ box-shadow: 1px 1px #ccc;
     margin-left: 15px;
     border-radius: 50%;
     width: 33px;
+    height: 33px;
 }
 .Header_right_part img:hover {
     cursor: pointer;

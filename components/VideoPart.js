@@ -16,7 +16,8 @@ const VideoPart = ( {data} ) => {
     const [isShowMore, setIsShowMore] = useState(false);
     const [comments, setComments] = useState([]);
     const textLimit = useRef(170)
-
+    const [username, setUsername] = useState('');
+    const [profile, setProfile] = useState('');
     const comment = "설명란, ------------------------, 설명란, ------------------------, 설명란, ------------------------, 설명란, ------------------------, 설명란, ------------------------, 설명란, ------------------------, 설명란, ------------------------, 설명란, ------------------------, 설명란, ------------------------, 설명란, ------------------------, 설명란, ------------------------, 설명란, ------------------------, 설명란, ------------------------, 설명란, ------------------------, 설명란, ------------------------, 설명란, ------------------------, "
     
     const commenter = useMemo(() => {
@@ -34,6 +35,11 @@ const VideoPart = ( {data} ) => {
             setComments(res.data.data);
             console.log(res.data.data);
         })
+        axios.get(`http://10.150.151.12:8000/getprofile?id=${data.owner}`)
+        .then(res=>{
+        setUsername(res.data.data[0].username);
+        setProfile(res.data.data[0].profile);
+        })
     }, [data, ]);
     console.log(data); 
     return (
@@ -49,9 +55,9 @@ const VideoPart = ( {data} ) => {
                 <div className={styles.Video_option}>
                     <div className={styles.Uploader_info_box}>
                         <div className={styles.Uploader_info}>
-                            <img src='https://yt3.ggpht.com/ytc/AMLnZu9I_o5dok5_ZSuZQPzS5__4R2g6IqYpNAncmQee=s88-c-k-c0x00ffffff-no-rj' />
+                            <img src={profile} />
                             <div>
-                                <span>essential;</span>
+                                <span>{username}</span>
                                 <p>구독자 100만명</p>
                             </div>
                         </div>

@@ -8,7 +8,7 @@ import styles from "../styles/Login.module.css"
 //최은결 왔다감
 const Login = () => {
   function test(){
-    axios.post("http://10.150.151.12:8000/login",{username : "dohi",password:"1234"})
+    axios.post("http://10.150.151.12:8000/login",{username : "taehyun",password:"1234"})
     .then((res)=>{
       localStorage.setItem("token", res.data.token);
     }).catch((err)=>{

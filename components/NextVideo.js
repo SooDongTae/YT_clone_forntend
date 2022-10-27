@@ -1,21 +1,31 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from "../styles/NextVideo.module.css";
 import { BiTimeFive, BiDotsVerticalRounded } from "react-icons/bi"
 import { RiPlayList2Fill } from "react-icons/ri"
+import axios from 'axios';
+import { useRouter } from 'next/router';
 
-const NextVideo = () => {
+const NextVideo = ( {data} ) => {
     const [isMouseOver, setIsMouseOver] = useState(false);
-    const watch = 100
-    const date = 7
-    const name = 'Wiz Khalifa'
+    const [username, setUsername] = useState('');
+    const router = useRouter();
+    useEffect(() => {
+        axios.get(`http://10.150.151.12:8000/getprofile?id=${data.owner}`)
+            .then(res=>{
+              setUsername(res.data.data[0].username);
+            })
+    }, []);
     return (
         <div 
             onMouseOver={ () => {setIsMouseOver(true)} } 
             onMouseLeave={ () => {setIsMouseOver(false)} }
             className={styles.Next_video}
+            onClick={() => {
+                router.push({pathname: 'watch', query: {id: data.video_id}});
+              }}
         >
             <div className={styles.Thumbnail_box}>
-                <img src='https://i.ytimg.com/vi/RgKAFK5djSk/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBhwpRCeR0BhQArxzwQO_lgrLV3jQ' />
+                <img src={data.thumbnail} />
                 <div className={styles.Thumbnail_icons}>
                     {
                         isMouseOver && <div className={styles.Thumbnail_icon}>
@@ -32,9 +42,9 @@ const NextVideo = () => {
                 </div>
             </div>
             <div className={styles.Video_info}>
-                <p>Wiz Khalifa - See You Again ft. Charlie Puth [Official Video]</p>
-                <span>{name}</span>
-                <span>조회수 {watch}회 • {date}년전</span>
+                <p>{data.title}</p>
+                <span>{username}</span>
+                <span>조회수 {data.views}회 • {data.create_at}년전</span>
             </div>
             {
                 isMouseOver && <BiDotsVerticalRounded size='20' className={styles.Next_video_menu}/>

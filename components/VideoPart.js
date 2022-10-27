@@ -27,7 +27,6 @@ const VideoPart = ( {data} ) => {
         }
         return comment
     }, [isShowMore])
-<<<<<<< HEAD
     useEffect(() => {
         console.log(data.video_id);
         axios.get(`http://10.150.151.12:8000/getcomments?id=${data.video_id}`)
@@ -40,25 +39,9 @@ const VideoPart = ( {data} ) => {
     return (
         <>
             <div className={styles.Video} dangerouslySetInnerHTML={{__html: data.link }}>
-=======
-
-    useEffect(() => {
-        axios.get('http://127.0.0.1:8000/getallvideo').then((response) => {
-            console.log(response.data);
-        }).catch((Error) => {
-            console.log(Error);
-        })
-    }, [])
-
-    return (
-        <>
-            <div className={styles.Video}>
-                
->>>>>>> 0e059e68dd999d3ef17bde92719680952c76254c
             </div>
             <div className={styles.Video_info_box}>
                 <div className={styles.Video_title_box}>
-                    <span>#SeeYouAgain</span>
                     <p>{data.title}</p>
                     <p className={styles.Video_views}>조회수 {data.views}회 • {data.create_at}</p>
                 </div>

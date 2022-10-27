@@ -1,10 +1,22 @@
-import React, { useState } from 'react'
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
 import styles from "../styles/Content.module.css"
 import NextVideo from './NextVideo';
 import VideoPart from './VideoPart';
 
 const Content = (props) => {
     const [cateColor, setCateColor] = useState(0);
+    const [videos, setVideos] = useState([]);
+    useEffect(() => {
+        axios.get("http://10.150.151.12:8000/getallvideo")
+        .then(res => {
+        setVideos(res.data.data);
+        console.log(res.data.data);
+        })
+        .catch(err => {
+        console.log(err);
+        })
+    }, []);
     return (
         <>
         <div className={styles.Content_container}>
@@ -19,16 +31,14 @@ const Content = (props) => {
                     <div onClick={()=>{setCateColor(4)}} className={`Video_cate ${cateColor === 4 ? "active" : ""} `}><a>최근에 업로드된</a></div>
                 </div>
                 <div className={styles.Video_box}>
-                    <NextVideo />
-                    <NextVideo />
-                    <NextVideo />
-                    <NextVideo />
-                    <NextVideo />
-                    <NextVideo />
-                    <NextVideo />
-                    <NextVideo />
-                    <NextVideo />
-                    <NextVideo />
+                    {videos.map((data, index) => {
+                        if(props.data.video_id !== data.video_id){
+                            return (
+                                <NextVideo data={data} />
+                            )
+                        }
+                    })
+                    }
                 </div>
             </div>
             

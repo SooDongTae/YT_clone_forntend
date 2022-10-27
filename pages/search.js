@@ -6,6 +6,7 @@ import OpenedSideBar from "../components/OpenedSideBar"
 import SideBar from "../components/SideBar"
 import { openState } from "../components/states"
 import axios from "axios"
+import SearchVideos from "../components/\bSearchVideos"
 
 const Search = () => {
     const router = useRouter()
@@ -108,28 +109,7 @@ const Search = () => {
             
             <div className="mainBox">
             {videos.map((data, index) => (
-              <div className="video_box" onClick={() => {
-                router.push({pathname: 'watch', query: {id: data.video_id}});
-              }}>
-                <div className="Thumbnail_box">
-                  <img src={data.thumbnail} className="Thumbnail" />
-                </div>
-                <div className="other_Box">
-                  <div className="title_box">
-                    {data.title}
-                  </div>
-                  <div className="createdAt_box">
-                    <span className="numAndCreatedAt">조회수 {data.views} • {data.create_at}</span>
-                  </div>
-                  <div className="user_profile_box">
-                    <img src={data.user_profile} className="user_profile" />
-                    <span className="user_name">{data.user_name}</span>
-                  </div>
-                  <div className="explain_box">
-                    {data.content}
-                  </div>
-                </div>
-              </div>
+              <SearchVideos data={data} />
             ))}
             </div>
         </div>
@@ -156,53 +136,6 @@ const Search = () => {
               margin-right: auto;
               width: 90%;
               height: auto;
-            }
-            .Thumbnail_box{
-              width: 40%;
-              height: 100%;
-
-            }
-            .Thumbnail{
-              width: 100%;
-              height: 100%;
-            }
-            .video_box{
-              display: flex;
-              margin-top: 2%;
-              height: 300px; 
-            }
-            .other_Box{
-              margin-left: 10px;
-              display: flex;
-              flex-direction: column;
-            }
-            .title_box{
-              font-size: 130%;
-            }
-            .numAndCreatedAt{
-              font-size:75%;
-              color: #606060;
-            }
-            .user_profile{
-              width: 24px;
-              height: 24px;
-              border-radius: 50%;
-            }
-            .user_profile_box{
-              display: flex;
-              align-items: center;
-              margin-top: 20%;
-              height: 22px;
-            }
-            .user_name{
-              font-size: 16px;
-              margin-left: 5px;
-              color: #606060;
-            }
-            .explain_box{
-              color: #606060;
-              font-size: 14px;
-              margin-top: 20%;
             }
         `}</style>
         </>
